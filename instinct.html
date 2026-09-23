@@ -143,7 +143,21 @@ footer { padding: 44px 0 72px; text-align: center; }
   .phead-text { flex: 1; min-width: 0; }
   .phead-media { flex: none; }
   .device-phone { display: block; width: 244px; height: auto; border-radius: 16px; box-shadow: 0 12px 34px rgba(38,51,43,.12); }
-  @media (max-width: 760px) { .phead-body { flex-direction: column; } .phead-media { align-self: center; } .device-phone { width: 210px; } }  strong { font-weight: 600; color: var(--ink); }
+  @media (max-width: 760px) { .phead-body { flex-direction: column; } .phead-media { align-self: center; } .device-phone { width: 210px; } }  strong { font-weight: 600; color: var(--ink); background: linear-gradient(180deg, transparent 56%, #ffe8a3 56%); -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 1px; }
+  .more { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .more-card { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; text-decoration: none; background: var(--card); transition: border-color .18s var(--ease-out), transform .18s var(--ease-out); }
+  .more-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .more-thumb { display: block; height: 156px; background: var(--panel); overflow: hidden; }
+  .more-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .more-info { padding: 15px 18px; display: flex; flex-direction: column; gap: 2px; }
+  .more-name { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; color: var(--ink); }
+  .more-by { font-family: var(--sans); font-size: 12.5px; color: var(--muted); }
+  .skill-cta { background: var(--ink); border-radius: 18px; padding: 52px 40px; margin: 44px 0 12px; text-align: center; }
+  .skill-cta h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.6rem, 3.4vw, 2.1rem); color: #fff; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .skill-cta p { font-family: var(--sans); font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,.74); max-width: 52ch; margin: 0 auto 26px; }
+  .btn-on-ink { display: inline-block; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none; padding: 13px 26px; border-radius: 12px; background: var(--accent); color: #fff; transition: background .18s var(--ease-out); }
+  .btn-on-ink:hover { background: #c15b3f; }
+  @media (max-width: 560px) { .more { grid-template-columns: 1fr; } .skill-cta { padding: 40px 24px; } }
   </style>
 </head>
 <body>
@@ -283,19 +297,27 @@ footer { padding: 44px 0 72px; text-align: center; }
       </div>
     </section>
 
-    <div class="cta">
-      <h3>Check a product yourself</h3>
-      <p>Download the CheckTOS skill and run this same read on any terms of service, inside your own Claude.</p>
-      <a class="btn primary" href="downloads/checktos-skill.zip" download>Get the skill</a>
+      </div>
     </div>
 
-    <section class="block" style="border-bottom:none;">
+    <section class="block">
       <h2 class="sec">Caveats</h2>
       <p class="caveat">This explains what the documents say. It does not read the law for you, weigh whether a clause would hold up, or guess what happens if you break the terms. It is not legal advice, and it does not judge Instinct. Every quote is word-for-word from its source: the terms and privacy notice dated 26 August 2026, the acceptable use policy dated 20 August 2026, and the SMS terms dated 17 August 2026. The terms were read on 22 September 2026 and the linked documents on 23 September 2026. The privacy, acceptable-use, and SMS documents are now read and folded in, so this covers the full set of linked terms.</p>
     </section>
 
+    <section class="block" style="border-bottom:none;">
+      <h2 class="sec">Read another breakdown</h2>
+      <div class="more">
+        <a class="more-card" href="lovable.html"><span class="more-thumb"><img src="case-study-mockups/lovable-mockup.png" alt="Lovable breakdown" /></span><span class="more-info"><span class="more-name">Lovable</span><span class="more-by">by Lovable Labs Incorporated</span></span></a>
+        <a class="more-card" href="jev.html"><span class="more-thumb"><img src="case-study-mockups/jev-mockup.png" alt="Jev breakdown" /></span><span class="more-info"><span class="more-name">Jev</span><span class="more-by">by TypeSafe AI, Inc.</span></span></a>
       </div>
-    </div>
+    </section>
+
+    <section class="skill-cta">
+      <h2>Read the fine print on anything you sign.</h2>
+      <p>CheckTOS is a downloadable skill. Point it at any terms of service and get this same plain-language read inside your own Claude, on your own tokens.</p>
+      <a class="btn-on-ink" href="downloads/checktos-skill.zip" download>Download the skill</a>
+    </section>
 
     <footer><a class="back" href="index.html">checktos.com</a></footer>
   </div>
