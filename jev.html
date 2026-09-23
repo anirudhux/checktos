@@ -100,7 +100,7 @@ blockquote .src { display: block; margin-top: 8px; font-family: var(--sans); fon
 .flagitems .q { color: var(--muted); }
 
 .caveat { font-size: 0.84rem; color: var(--muted); }
-footer { padding: 44px 0 72px; text-align: center; }
+footer { padding: 8px 0 72px; }
 .cta { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 40px; text-align: center; margin: 56px 0; }
 .cta h3 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin: 0 0 8px; color: var(--ink); }
 .cta p { color: var(--muted); font-size: 0.92rem; margin: 0 0 18px; }
@@ -168,6 +168,20 @@ footer { padding: 44px 0 72px; text-align: center; }
   .btn-on-ink { display: inline-block; font-family: var(--sans); font-weight: 600; font-size: 14px; text-decoration: none; padding: 13px 26px; border-radius: 12px; background: var(--accent); color: #fff; transition: background .18s var(--ease-out); }
   .btn-on-ink:hover { background: #c15b3f; }
   @media (max-width: 560px) { .more { grid-template-columns: 1fr; } .skill-cta { padding: 40px 24px; } }
+  .contacts { border: 1px solid var(--border); border-radius: 12px; background: var(--card); overflow: hidden; margin-top: 4px; }
+  .contact-row { display: grid; grid-template-columns: 170px 1fr; gap: 6px 20px; padding: 16px 22px; border-top: 1px solid var(--border); align-items: baseline; }
+  .contact-row:first-child { border-top: none; }
+  .c-purpose { font-family: var(--sans); font-weight: 600; font-size: 0.92rem; color: var(--ink); }
+  .c-detail { font-size: 0.92rem; color: var(--ink); line-height: 1.5; }
+  .c-detail a { color: var(--accent); }
+  .c-src { display: block; color: var(--muted); font-size: 0.78rem; margin-top: 3px; }
+  @media (max-width: 560px) { .contact-row { grid-template-columns: 1fr; } }  .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; padding-top: 26px; border-top: 1px solid var(--border); }
+  .footer-brand { font-family: var(--sans); font-size: 13px; color: var(--muted); }
+  .footer-brand b { font-weight: 700; color: var(--ink); }
+  .footer-socials { display: flex; align-items: center; gap: 18px; }
+  .footer-socials a { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-size: 13px; color: var(--muted); text-decoration: none; transition: color .18s var(--ease-out); }
+  .footer-socials a:hover { color: var(--ink); }
+  .footer-socials svg { width: 14px; height: 14px; fill: currentColor; }
   </style>
 </head>
 <body>
@@ -428,6 +442,17 @@ footer { padding: 44px 0 72px; text-align: center; }
     </div>
 
     <section class="block">
+      <h2 class="sec">How to reach them</h2>
+      <p class="sec-sub">Taken from the documents and sorted by what you need. Any message is yours to send.</p>
+      <div class="contacts">
+        <div class="contact-row"><div class="c-purpose">Support</div><div class="c-detail"><a href="mailto:support@typesafe.ai">support@typesafe.ai</a><span class="c-src">Terms of Use · Section 13(e)</span></div></div>
+        <div class="contact-row"><div class="c-purpose">Privacy and data</div><div class="c-detail"><a href="mailto:privacy@typesafe.ai">privacy@typesafe.ai</a><span class="c-src">Privacy Policy · Contact Information</span></div></div>
+        <div class="contact-row"><div class="c-purpose">Legal notice</div><div class="c-detail">TypeSafe AI, Inc., 255 California St, Suite 1300, San Francisco, CA 94117. Sent by certified U.S. Mail or Federal Express with signature required.<span class="c-src">Master Customer Agreement · Section 15.4</span></div></div>
+        <div class="contact-row"><div class="c-purpose">Arbitration opt-out</div><div class="c-detail">By letter to TypeSafe AI, Inc., Attention: Legal Department – Arbitration Opt-Out, 255 California St, Suite 1300, San Francisco, CA 94117, within thirty (30) days after you agree to the Terms. This opt-out belongs to the website Terms of Use. The product Master Customer Agreement waives class actions and gives no opt-out.<span class="c-src">Terms of Use · Section 12(c)</span></div></div>
+      </div>
+    </section>
+
+    <section class="block">
       <h2 class="sec">Caveats</h2>
       <p class="caveat">This explains what the documents say. It does not read the law for you, weigh whether a clause would hold up, or guess what happens if you break the terms. It is not legal advice, and it does not judge TypeSafe. Every quote is word-for-word from its source: the Master Customer Agreement and Terms of Use updated 19 September 2026, the Privacy Policy updated 19 November 2025, and the Data Processing Addendum updated 24 April 2026. The Terms of Use was read on 22 September 2026, and the Master Customer Agreement, Privacy Policy, and Data Processing Addendum on 23 September 2026. The separate product agreement is the public Master Customer Agreement, now read and folded in, so this covers both the product and the website terms.</p>
     </section>
@@ -446,7 +471,15 @@ footer { padding: 44px 0 72px; text-align: center; }
       <a class="btn-on-ink" href="downloads/checktos-skill.zip" download>Download the skill</a>
     </section>
 
-    <footer><a class="back" href="index.html">checktos.com</a></footer>
+    <footer>
+      <div class="footer-row">
+        <span class="footer-brand"><b>CheckTOS</b> · Read the terms before you agree to them.</span>
+        <span class="footer-socials">
+          <a href="https://x.com/anirudhux" target="_blank" rel="noopener noreferrer" aria-label="@anirudhux on X">@anirudhux<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/in/anirudhux" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — anirudhux"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>LinkedIn</a>
+        </span>
+      </div>
+    </footer>
   </div>
   <script>
     document.querySelectorAll('.menu').forEach(function(m){
