@@ -1,0 +1,15 @@
+# internal — never serve publicly
+guidelines/
+checktos-skill/
+TOS files/
+.claude/
+README.md
+analysisguidelines.md
+extractionguidelines.md
+document-extraction-standards.md
+
+# deploy script
+deploy.sh
+
+# OG image template (the rendered og.png ships; this source does not)
+og.html

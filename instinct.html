@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instinct · CheckTOS</title>
+  <meta name="description" content="A plain-language breakdown of Instinct's Terms of Service across product, usage, feedback, and legal, quoted from the document." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="CheckTOS" />
+  <meta property="og:title" content="Instinct's terms of service, in plain language" />
+  <meta property="og:description" content="What Instinct's terms say across product, usage, feedback, and legal, quoted from the document." />
+  <meta property="og:url" content="https://checktos.com/instinct.html" />
+  <meta property="og:image" content="https://checktos.com/og.png" />
+  <meta property="og:image:width" content="2400" />
+  <meta property="og:image:height" content="1260" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Instinct's terms of service, in plain language" />
+  <meta name="twitter:description" content="What Instinct's terms say, quoted from the document." />
+  <meta name="twitter:image" content="https://checktos.com/og.png" />
+  <meta name="twitter:site" content="@anirudhux" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --bg: #ffffff; --panel: #eef1e9; --card: #ffffff; --border: #d5ddcc;
+  --ink: #26332b; --muted: #61705f; --accent: #d2694a; --accent-soft: #ecb7a6; --on-accent: #fbf6f1; --ok: #3f7d5a;
+  --sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+html { color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+a { color: var(--accent); }
+
+header.bar {
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px); z-index: 10;
+}
+header.bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.wordmark { font-family: var(--sans); font-weight: 700; font-size: 19px; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+.back { font-family: var(--sans); font-weight: 500; font-size: 13px; color: var(--muted); text-decoration: none; }
+.back:hover { color: var(--ink); }
+
+/* product header */
+.phead { padding: 64px 0 44px; border-bottom: 1px solid var(--border); }
+.pname { font-family: var(--serif); font-weight: 600; font-size: clamp(2.8rem, 8vw, 4.2rem); line-height: 1; margin: 0 0 8px; letter-spacing: -0.01em; }
+.pby { font-family: var(--sans); font-size: 0.95rem; color: var(--muted); margin: 6px 0 0; }
+  .pintro { font-size: 1.05rem; color: var(--ink); line-height: 1.6; margin: 6px 0 30px; max-width: 62ch; }
+
+/* clarity callout with a plain-text pill */
+.clarity-meter { background: var(--panel); border-radius: 12px; padding: 22px 24px; margin: 0 0 30px; }
+  .cm-head { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; margin-bottom: 18px; }
+  .cm-label { font-family: var(--sans); font-weight: 500; font-size: 13px; color: var(--muted); }
+  .cm-band { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; color: var(--ink); letter-spacing: -0.01em; }
+  .cm-track { position: relative; height: 10px; border-radius: 999px; background: linear-gradient(90deg, var(--ok) 0%, #c8cf74 50%, var(--accent) 100%); }
+  .cm-node { position: absolute; top: 50%; transform: translate(-50%,-50%); width: 9px; height: 9px; border-radius: 50%; background: var(--card); box-shadow: 0 0 0 1px rgba(38,51,43,.20); cursor: default; }
+  .cm-node::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
+  .cm-tip { position: absolute; bottom: calc(100% + 9px); left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; font-family: var(--sans); font-weight: 500; font-size: 11px; white-space: nowrap; padding: 4px 9px; border-radius: 6px; opacity: 0; pointer-events: none; transition: opacity .15s var(--ease-out); z-index: 4; }
+  .cm-node:hover .cm-tip { opacity: 1; }
+  .cm-marker { position: absolute; top: 50%; transform: translate(-50%,-50%); width: 20px; height: 20px; border-radius: 50%; background: var(--ink); border: 3px solid var(--card); box-shadow: 0 0 0 1px var(--border); }
+  .cm-ends { display: flex; justify-content: space-between; margin-top: 9px; font-family: var(--sans); font-weight: 500; font-size: 12px; color: var(--muted); }
+  .cm-sep { border: 0; border-top: 1px solid var(--border); margin: 18px 0; }
+  .cm-note { margin: 0; font-size: 0.92rem; color: var(--ink); line-height: 1.5; }
+
+.meta { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px 24px; font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+.meta div span { color: var(--ink); }
+
+.dl { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { font-family: var(--sans); font-weight: 600; font-size: 13px; text-decoration: none; padding: 10px 16px; border-radius: 10px; border: 1px solid var(--ink); color: var(--ink); background: transparent; transition: border-color .18s var(--ease-out), background .18s var(--ease-out); }
+.btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn.primary:hover { background: #333f34; }
+.btn:hover { border-color: var(--ink); }
+
+/* sections */
+section.block { padding: 56px 0; border-bottom: 1px solid var(--border); }
+h2.sec { font-family: var(--serif); font-weight: 600; font-size: 1.65rem; letter-spacing: -0.01em; margin: 0 0 8px; color: var(--ink); }
+.sec-sub { font-family: var(--sans); font-size: 0.88rem; color: var(--muted); margin: 0 0 36px; }
+.journey { margin-bottom: 52px; }
+.journey:last-child { margin-bottom: 0; }
+h3.jname { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 16px; }
+.journey p.summary { margin: 0 0 20px; }
+
+blockquote { margin: 18px 0; padding: 16px 20px; border: 1px solid var(--border); background: var(--card); border-radius: 12px; font-size: 0.94rem; color: var(--ink); }
+blockquote .src { display: block; margin-top: 8px; font-family: var(--sans); font-weight: 500; font-size: 11px; letter-spacing: 0.02em; color: var(--muted); }
+
+.note { font-size: 0.9rem; color: var(--muted); margin: 20px 0 0; }
+
+/* structure summary */
+.flags { border: 1px solid var(--border); border-radius: 12px; background: var(--card); overflow: hidden; margin-top: 4px; }
+  .flagrow { display: grid; grid-template-columns: 150px 1fr; gap: 8px 20px; padding: 18px 22px; border-top: 1px solid var(--border); align-items: baseline; }
+.flagrow:first-of-type { border-top: none; }
+.flagname { font-family: var(--sans); font-weight: 600; font-size: 0.92rem; color: var(--ink); }
+.flagcount { color: var(--muted); font-size: 0.78rem; }
+.flagitems { font-size: 0.9rem; }
+.flagitems .q { color: var(--muted); }
+
+.caveat { font-size: 0.84rem; color: var(--muted); }
+footer { padding: 44px 0 72px; text-align: center; }
+.cta { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 40px; text-align: center; margin: 56px 0; }
+.cta h3 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin: 0 0 8px; color: var(--ink); }
+.cta p { color: var(--muted); font-size: 0.92rem; margin: 0 0 18px; }
+.cta .btn.primary { display: inline-block; }
+
+@media (max-width: 560px) { .meta { grid-template-columns: 1fr; } .flagrow { grid-template-columns: 1fr; } }
+/* lead: headline + ranked takeaways */
+.lead-head { font-family: var(--serif); font-weight: 600; font-size: clamp(1.35rem, 2.6vw, 1.75rem); line-height: 1.3; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.lead-label { font-family: var(--sans); font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 24px 0 16px; }
+.takeaways { list-style: none; counter-reset: t; margin: 26px 0 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+.takeaways li { counter-increment: t; display: flex; gap: 14px; align-items: flex-start; font-size: 1rem; line-height: 1.5; color: var(--ink); }
+.takeaways li::before { content: counter(t); flex: none; width: 24px; height: 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: var(--sans); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+  .phead-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+  .phead-left { min-width: 0; }
+  .dlbar { display: flex; align-items: center; gap: 10px; flex: none; padding-top: 12px; }
+  .menu { position: relative; }
+  .menu-btn { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+  .menu-btn .caret { font-size: 10px; }
+  .menu-list { position: absolute; right: 0; top: calc(100% + 6px); background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 6px; min-width: 190px; box-shadow: 0 8px 24px rgba(38,51,43,.12); z-index: 5; display: flex; flex-direction: column; }
+  .menu-list[hidden] { display: none; }
+  .menu-list a { font-family: var(--sans); font-weight: 500; font-size: 13px; color: var(--ink); text-decoration: none; padding: 9px 11px; border-radius: 7px; }
+  .menu-list a:hover { background: var(--panel); }
+  @media (max-width: 560px) { .phead-row { flex-direction: column; } .dlbar { padding-top: 4px; } }
+  .qcard { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin: 22px 0; }
+  .qcard blockquote { margin: 0; border: none; border-radius: 0; background: none; padding: 16px 20px; }
+  .qcard blockquote + blockquote { border-top: 1px solid var(--border); }
+  html { scroll-behavior: smooth; }
+  section.block, .journey { scroll-margin-top: 76px; }
+  .toc { counter-reset: sec; display: flex; flex-direction: column; gap: 18px; margin: 0; }
+  .toc a { counter-increment: sec; display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: baseline; font-family: var(--sans); font-size: 14px; line-height: 1.35; color: var(--ink); text-decoration: none; }
+  .toc a::before { content: counter(sec, decimal-leading-zero); font-size: 12px; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .toc a:hover, .toc a.active { color: var(--accent); }
+  .toc a:hover::before, .toc a.active::before { color: var(--accent); }
+  .layout { display: flex; align-items: flex-start; gap: 60px; }
+  .rail { flex: none; width: 190px; position: sticky; top: 84px; align-self: flex-start; margin-top: 56px; }
+  .doc { flex: 1; min-width: 0; }
+  @media (max-width: 900px) { .layout { display: block; } .rail { display: none; } }
+  .phead-sep { border: 0; border-top: 1px solid var(--border); margin: 26px 16px; }
+  .phead-body { display: flex; gap: 48px; align-items: flex-start; }
+  .phead-text { flex: 1; min-width: 0; }
+  .phead-media { flex: none; }
+  .device-phone { display: block; width: 244px; height: auto; border-radius: 16px; box-shadow: 0 12px 34px rgba(38,51,43,.12); }
+  @media (max-width: 760px) { .phead-body { flex-direction: column; } .phead-media { align-self: center; } .device-phone { width: 210px; } }
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <div class="wrap">
+      <a class="wordmark" href="index.html">CheckTOS</a>
+      <a class="back" href="index.html#examples">← All breakdowns</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="phead">
+      <div class="phead-row">
+        <h1 class="pname">Instinct</h1>
+        <div class="dlbar">
+          <a class="btn primary" href="downloads/checktos-skill.zip" download>Download skill</a>
+          <div class="menu">
+            <button class="btn menu-btn" type="button" aria-haspopup="true" aria-expanded="false">Export <span class="caret">&#9662;</span></button>
+            <div class="menu-list" role="menu" hidden>
+              <a role="menuitem" href="downloads/instinct-analysis.md" download>Analysis</a>
+              <a role="menuitem" href="downloads/instinct-extraction.md" download>Extracted terms</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="pby">by Spear Street Technology, Inc.</p>
+      <hr class="phead-sep" />
+      <div class="phead-body">
+        <div class="phead-media"><img class="device device-phone" src="case-study-mockups/instinct-mockup.png" alt="The Instinct app: a text conversation with the assistant" /></div>
+        <div class="phead-text">
+          <p class="pintro">Instinct is an AI personal assistant that plugs into your accounts and does things for you. You give it a prompt, it replies or carries out the task, including purchases made on your behalf. It is for people who want an assistant to run their everyday transactions and errands.</p>
+
+          <div class="clarity-meter">
+            <div class="cm-head">
+              <span class="cm-label">Clarity Meter</span>
+              <span class="cm-band">Needs a lawyer</span>
+            </div>
+            <div class="cm-track"><span class="cm-node" style="left: 33%"><span class="cm-tip">Some legalese</span></span><span class="cm-node" style="left: 67%"><span class="cm-tip">Dense</span></span><span class="cm-marker" style="left: 81%"></span></div>
+            <div class="cm-ends"><span>Plain English</span><span>Needs a lawyer</span></div>
+            <hr class="cm-sep" />
+            <p class="cm-note">You can follow the plain parts, but long, all-caps blocks hold the clauses that cost you.</p>
+          </div>
+
+          <div class="meta">
+            <div>Source: <span><a href="https://instinct.com/terms">instinct.com/terms</a></span></div>
+            <div>Revised: <span>26 Aug 2026</span></div>
+            <div>Retrieved: <span>22 Sep 2026</span></div>
+            <div>Also read: <span>Privacy Notice, Acceptable Use Policy, SMS terms</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <aside class="rail">
+    <nav class="toc" aria-label="Contents">
+      <a href="#product">Product</a>
+      <a href="#usage">Usage</a>
+      <a href="#feedback">Feedback &amp; improvement</a>
+      <a href="#legal">Legal ramifications</a>
+      <a href="#structure">Structure summary</a>
+    </nav>
+      </aside>
+      <div class="doc">
+
+    <section class="block">
+      <p class="lead-head">Instinct's assistant acts for you. The terms count its actions as yours.</p>
+      <ol class="takeaways">
+        <li>It can make purchases and enter agreements for you, and those bind you as if you signed them yourself.</li>
+        <li>It takes standing access to your connected accounts and keeps an indexed copy of that data after you disconnect, until you ask for deletion.</li>
+        <li>Your inputs train their models by default. You can opt out, but safety-flagged data and any model already trained on your data stay.</li>
+        <li>If something goes wrong you can recover at most $100 or six months of fees, and disputes go to individual arbitration.</li>
+      </ol>
+    </section>
+
+    <section class="block">
+
+      <div class="journey" id="product">
+        <h3 class="jname">Product</h3>
+        <p class="summary">Instinct is an AI assistant that acts for you, and the terms treat what it does as your own doing. It can buy things and enter agreements on your behalf, and those bind you as if you signed them yourself. You own what you feed it. Instinct owns the assistant and the technology behind it, and it does not promise you the copyright in whatever the assistant makes. Money you pay does not come back.</p>
+        <div class="qcard">
+        <blockquote>"You hereby appoint the Services as your agent to enter into agreements, commitments or transactions on your behalf... Any such agreements or commitments shall be binding on you as if entered into directly by you."<span class="src">Section 3 · Actions</span></blockquote>
+        <blockquote>"Except to the extent required by applicable law, all payments are non-refundable."<span class="src">Section 4 · Paid services</span></blockquote>
+        </div>
+        <p class="note">The document never says how long Instinct keeps your Materials, or what becomes of them if it shuts down.</p>
+      </div>
+
+      <div class="journey" id="usage">
+        <h3 class="jname">Usage</h3>
+        <p class="summary">Running Instinct means handing it standing access to your other accounts. You let it reach in, copy, and index the data from every service you connect. Disconnecting one does not pull that data back; the indexed copy stays until you ask them to delete it. The privacy notice shows how far this reaches, up to your third-party usernames and passwords so the assistant can sign in as you, and health details it handles on your behalf. A separate acceptable use policy, now read here, sets the conduct rules and says the terms win if the two clash. There is a long list of restrictions, one account per person, and an eighteen-or-older floor.</p>
+        <div class="qcard">
+        <blockquote>"You also authorize Instinct to access, copy, collect, and index data from your Connected Services... even if you disconnect a Connected Service, Instinct may still use the indexed Connected Service Input data unless you follow the instructions to request deletion."<span class="src">Section 3 · Connected services</span></blockquote>
+        <blockquote>"Don't violate the law, violate the rights of others, or engage in harmful activities when using the Services."<span class="src">Acceptable Use Policy · Section 1</span></blockquote>
+        </div>
+        <p class="note">You delete the indexed copy at app.instinct.com/workspace; the privacy notice confirms a disconnect alone leaves the data in place. The words "unsafe" and "inappropriate" decide what actions you may take, and the documents define neither (Section 3).</p>
+      </div>
+
+      <div class="journey" id="feedback">
+        <h3 class="jname">Feedback &amp; improvement</h3>
+        <p class="summary">Your data trains their models by default. Anything you put in can improve the product and train the AI. The opt-out in settings leaves two holes: they keep using whatever gets flagged for safety review, and any model already trained on your data stays trained. What you place in the Vault is the one thing they never train on. The privacy notice widens the picture. Training also feeds on how you behave, down to your keystrokes and clicks, and data stripped of your identity can serve any purpose at all. Data from a linked Google Workspace is the one carve-out they promise never to train on. Any feedback you send becomes theirs outright.</p>
+        <div class="qcard">
+        <blockquote>"You agree that Instinct may use Materials to develop, provide, maintain and improve the Services and Instinct's other products and services, including training AI models"<span class="src">Section 3 · Materials</span></blockquote>
+        <blockquote>"Instinct may use deidentified information for any purpose."<span class="src">Privacy Notice · Deidentified information</span></blockquote>
+        <blockquote>"All Feedback becomes the sole and exclusive property of Instinct... You hereby assign to Instinct any and all right, title and interest... in and to any and all Feedback."<span class="src">Section 7 · Ownership of feedback</span></blockquote>
+        </div>
+        <p class="note">The opt-out only looks forward. It stops model training and leaves the other improvements untouched (Section 3). Instinct says Google Workspace data stays out of training and out of ad targeting (Privacy Notice).</p>
+      </div>
+
+      <div class="journey" id="legal">
+        <h3 class="jname">Legal ramifications</h3>
+        <p class="summary">Disputes leave the courts. You arbitrate on your own through JAMS and give up class actions, with thirty days to opt out by email. If something goes wrong, the most you get back is a hundred dollars, or what you paid in the last six months, whichever is larger. You cover Instinct's legal bills, one way. It can delete your account with or without notice, for any reason or none.</p>
+        <div class="qcard">
+        <blockquote>"INSTINCT'S TOTAL LIABILITY TO YOU FOR ANY DAMAGES FINALLY AWARDED SHALL NOT EXCEED THE GREATER OF ONE HUNDRED DOLLARS ($100.00), OR THE AMOUNT YOU PAID INSTINCT FOR THE SERVICES, IF ANY, IN THE PAST SIX (6) MONTHS GIVING RISE TO THE CLAIM."<span class="src">Section 9 · Limitations of liability</span></blockquote>
+        <blockquote>"Instinct may suspend, disable, or delete your Account and/or the Services (or any part of the foregoing) with or without notice, for any or no reason."<span class="src">Section 11 · Termination</span></blockquote>
+        </div>
+        <p class="note">Small-claims, injunctive, and IP disputes stay out of arbitration, and the opt-out runs by email inside thirty days (Section 10). The privacy notice names who your data reaches, including third-party AI providers and business partners who may use it for their own ends on an aggregate or anonymized basis, and it says Instinct does not sell your data or hand it to data brokers. The SMS texts are sign-in codes; reply STOP or HELP, and carriers are not liable for a message that never arrives (SMS terms).</p>
+      </div>
+    </section>
+
+    <section class="block" id="structure">
+      <h2 class="sec">Structure summary</h2>
+      <p class="sec-sub">Each item below is in the document, quoted and located, with no score and no judgment of Instinct.</p>
+
+            <div class="flags">
+<div class="flagrow"><div><span class="flagname">One-sided</span><br><span class="flagcount">3 found</span></div>
+        <div class="flagitems">Instinct can assign the Terms; you cannot without its consent (Section 11). Indemnity runs one way (Section 9). Instinct can change pricing whenever it likes (Section 4).</div></div>
+      <div class="flagrow"><div><span class="flagname">Absolute</span><br><span class="flagcount">4 found</span></div>
+        <div class="flagitems">It can delete your account <span class="q">"with or without notice, for any or no reason"</span> (Section 11). A full warranty disclaimer (Section 9). For a policy breach it can <span class="q">"take any action that we may deem appropriate"</span> (Acceptable Use Policy). It <span class="q">"may use deidentified information for any purpose"</span> (Privacy Notice).</div></div>
+      <div class="flagrow"><div><span class="flagname">Undefined terms</span><br><span class="flagcount">3 found</span></div>
+        <div class="flagitems"><span class="q">"meaningful human review"</span>, <span class="q">"unsafe / inappropriate"</span> (Section 3); <span class="q">"objectionable"</span> (Section 6).</div></div>
+      <div class="flagrow"><div><span class="flagname">Scope limits</span><br><span class="flagcount">5 found</span></div>
+        <div class="flagitems">A thirty-day arbitration opt-out (Section 10); small-claims, injunctive, and IP carve-outs (Section 10); a New Jersey warranty exception (Section 9); export and sanctions limits (Section 11); Google Workspace data kept out of AI training and ad targeting (Privacy Notice).</div></div>
+      <div class="flagrow"><div><span class="flagname">Gaps</span><br><span class="flagcount">2 found</span></div>
+        <div class="flagitems">No retention period for your Materials or personal data in either the terms or the privacy notice; nothing on what happens to them if Instinct winds down.</div></div>
+      <div class="flagrow"><div><span class="flagname">Contradictions</span><br><span class="flagcount">0 found</span></div>
+        <div class="flagitems">None found.</div></div>
+      </div>
+    </section>
+
+    <div class="cta">
+      <h3>Check a product yourself</h3>
+      <p>Download the CheckTOS skill and run this same read on any terms of service, inside your own Claude.</p>
+      <a class="btn primary" href="downloads/checktos-skill.zip" download>Get the skill</a>
+    </div>
+
+    <section class="block" style="border-bottom:none;">
+      <h2 class="sec">Caveats</h2>
+      <p class="caveat">This explains what the documents say. It does not read the law for you, weigh whether a clause would hold up, or guess what happens if you break the terms. It is not legal advice, and it does not judge Instinct. Every quote is word-for-word from its source: the terms and privacy notice dated 26 August 2026, the acceptable use policy dated 20 August 2026, and the SMS terms dated 17 August 2026. The terms were read on 22 September 2026 and the linked documents on 23 September 2026. The privacy, acceptable-use, and SMS documents are now read and folded in, so this covers the full set of linked terms.</p>
+    </section>
+
+      </div>
+    </div>
+
+    <footer><a class="back" href="index.html">checktos.com</a></footer>
+  </div>
+  <script>
+    document.querySelectorAll('.menu').forEach(function(m){
+      var b=m.querySelector('.menu-btn'), l=m.querySelector('.menu-list');
+      b.addEventListener('click', function(e){ e.stopPropagation(); var open=!l.hidden; l.hidden=open; b.setAttribute('aria-expanded', String(!open)); });
+    });
+    document.addEventListener('click', function(){
+      document.querySelectorAll('.menu-list').forEach(function(l){ l.hidden=true; });
+      document.querySelectorAll('.menu-btn').forEach(function(b){ b.setAttribute('aria-expanded','false'); });
+    });
+    (function(){
+      var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+      var map = {}; links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            links.forEach(function(a){ a.classList.remove('active'); });
+            if(map[e.target.id]) map[e.target.id].classList.add('active');
+          }
+        });
+      }, { rootMargin: '-80px 0px -72% 0px', threshold: 0 });
+      ['product','usage','feedback','legal','structure'].forEach(function(id){
+        var el = document.getElementById(id); if(el) obs.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CheckTOS</title>
+  <meta name="description" content="CheckTOS reads the terms of service you are about to agree to and tells you, in plain language, what they actually say." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CheckTOS" />
+  <meta property="og:title" content="Understand the terms before you agree to them." />
+  <meta property="og:description" content="A plain-language breakdown of any terms of service. Read the ones already checked, or run the skill on any product yourself." />
+  <meta property="og:url" content="https://checktos.com/" />
+  <meta property="og:image" content="https://checktos.com/og.png" />
+  <meta property="og:image:width" content="2400" />
+  <meta property="og:image:height" content="1260" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Understand the terms before you agree to them." />
+  <meta name="twitter:description" content="A plain-language breakdown of any terms of service." />
+  <meta name="twitter:image" content="https://checktos.com/og.png" />
+  <meta name="twitter:site" content="@anirudhux" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff; --panel: #e9efe4; --border: #d5ddcc; --ink: #26332b; --muted: #61705f;
+      --accent: #d2694a; --accent-soft: #ecb7a6; --on-accent: #fbf6f1;
+      --node-fill: #26332b; --node-text: #f2f5ef; --ok: #3f7d5a;
+      --sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    html { scroll-behavior: smooth; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    header.bar { display: flex; align-items: center; justify-content: space-between; padding: 20px 0 40px; }
+    .wordmark { font-family: var(--sans); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; color: var(--ink); }
+    .nav { display: flex; align-items: center; gap: 18px; }
+    .nav-link { font-family: var(--sans); font-weight: 500; font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-link:hover { color: var(--ink); }
+    .nav-cta { font-family: var(--sans); font-weight: 600; font-size: 14px; color: var(--on-accent); background: var(--accent); padding: 8px 15px; border-radius: 999px; text-decoration: none; box-shadow: 0 3px 8px rgba(190,80,55,0.28); transition: filter .18s var(--ease-out); }
+    .nav-cta:hover { filter: brightness(0.95); }
+
+    .hero { text-align: center; padding: 40px 0 0; }
+    .hero h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.9rem, 4.1vw, 3rem); line-height: 1.16; margin: 0 auto 24px; max-width: 24ch; letter-spacing: -0.01em; }
+    .hero h1 .em { color: var(--accent); font-style: italic; }
+    .lede { font-family: var(--sans); font-size: clamp(0.95rem, 1.5vw, 1.05rem); line-height: 1.7; color: var(--muted); margin: 0 auto 34px; max-width: 58ch; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-weight: 700; font-size: 15px; color: var(--on-accent); background: var(--accent); padding: 13px 28px; border-radius: 999px; text-decoration: none; box-shadow: 0 5px 14px rgba(190,80,55,0.32); transition: filter .18s var(--ease-out), transform .18s var(--ease-out); }
+    .hero-cta:hover { filter: brightness(0.95); transform: translateY(-1px); }
+
+    .chart-shell { padding: 44px 0 52px; }
+    .chart { width: 100%; max-width: 720px; margin: 0 auto; height: auto; display: block; overflow: visible; }
+    .n-label { font-family: var(--sans); font-weight: 500; fill: var(--node-text); }
+    .f-label, .p-label { font-family: var(--sans); font-weight: 500; fill: var(--ink); }
+    .node-rect { fill: var(--node-fill); }
+    .node-shadow { fill: #26332b; opacity: 0.13; }
+    .feed-rect { fill: var(--panel); stroke: var(--border); stroke-width: 1.4; }
+    .pill { fill: var(--panel); stroke: var(--border); stroke-width: 1.3; }
+    .pill-flash { fill: var(--accent-soft); opacity: 0; }
+    .skill-b { fill: none; stroke: var(--muted); stroke-width: 1.4; stroke-dasharray: 7 6; opacity: 0.65; }
+    .track, .fan-track { stroke: var(--border); stroke-width: 2; fill: none; }
+    .feed-track { stroke: var(--border); stroke-width: 1.6; fill: none; stroke-dasharray: 4 5; }
+    .fill { stroke: var(--accent); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .fan-fill { stroke: var(--muted); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .feed-fill { stroke: var(--muted); stroke-width: 2; fill: none; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .head { fill: var(--muted); }
+    .head-accent { fill: var(--accent); }
+    .ring { fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0; }
+    .check { stroke: var(--ok); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+    .packet { filter: drop-shadow(0 2px 5px rgba(0,0,0,0.20)); }
+    .p-chip { fill: var(--accent); animation: chip 7.2s linear infinite; }
+    .p-icon { stroke: #ffffff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    @keyframes chip { 0%,17%{fill:var(--accent)} 44%,100%{fill:var(--ok)} }
+    .cta-dl { cursor: pointer; }
+    .cta-bg { fill: var(--accent); filter: drop-shadow(0 4px 10px rgba(190,80,55,0.34)); transition: filter .18s var(--ease-out); }
+    .cta-dl:hover .cta-bg { filter: drop-shadow(0 6px 14px rgba(190,80,55,0.44)) brightness(0.96); }
+    .cta-txt { font-family: var(--sans); font-weight: 700; fill: var(--on-accent); letter-spacing: 0.03em; }
+
+    /* one-time reveal */
+    .reveal { opacity: 0; animation: reveal .6s var(--ease-out) forwards; }
+    @keyframes reveal { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: none;} }
+    .r1{animation-delay:.05s}.r2{animation-delay:.16s}.r3{animation-delay:.27s}.r4{animation-delay:.38s}.r5{animation-delay:.49s}.r6{animation-delay:.60s}
+
+    /* looped run — shared 7.2s timeline */
+    .packet { animation: packet 7.2s linear infinite; }
+    @keyframes packet {
+      0%   { transform: translate(165px,158px) scale(.9); opacity: 0; }
+      2%   { transform: translate(165px,158px) scale(1); opacity: 1; }
+      8%   { transform: translate(165px,158px) scale(1); opacity: 1; }
+      17%  { transform: translate(478px,158px) scale(1); opacity: 1; }
+      24%  { transform: translate(478px,158px) scale(1); opacity: 1; }
+      34%  { transform: translate(672px,158px) scale(1); opacity: 1; }
+      44%  { transform: translate(672px,158px) scale(1); opacity: 1; }
+      50%  { transform: translate(672px,158px) scale(.65); opacity: 0; }
+      100% { transform: translate(672px,158px) scale(.65); opacity: 0; }
+    }
+    .pa,.pb,.pc { animation-duration: 7.2s; animation-timing-function: linear; animation-iteration-count: infinite; }
+    .pa { animation-name: pa; } .pb { animation-name: pb; } .pc { animation-name: pc; }
+    @keyframes pa { 0%,15%{opacity:1} 19%,100%{opacity:0} }
+    @keyframes pb { 0%,16%{opacity:0} 20%{opacity:1} 32%{opacity:1} 36%,100%{opacity:0} }
+    @keyframes pc { 0%,33%{opacity:0} 37%{opacity:1} 47%{opacity:1} 51%,100%{opacity:0} }
+
+    .c1{animation:c1 7.2s linear infinite}.c2{animation:c2 7.2s linear infinite}
+    @keyframes c1 { 0%,8%{stroke-dashoffset:1} 17%,100%{stroke-dashoffset:0} }
+    @keyframes c2 { 0%,24%{stroke-dashoffset:1} 34%,100%{stroke-dashoffset:0} }
+    .fe{animation:fe 7.2s linear infinite}.fa{animation:fa 7.2s linear infinite}
+    @keyframes fe { 0%,10%{stroke-dashoffset:1} 17%{stroke-dashoffset:0} 26%{stroke-dashoffset:0} 30%,100%{stroke-dashoffset:1} }
+    @keyframes fa { 0%,27%{stroke-dashoffset:1} 34%{stroke-dashoffset:0} 43%{stroke-dashoffset:0} 47%,100%{stroke-dashoffset:1} }
+
+    .rings { transform-box: fill-box; transform-origin: center; }
+    .pin{animation:pin 7.2s ease-out infinite}.pex{animation:pex 7.2s ease-out infinite}.pan{animation:pan 7.2s ease-out infinite}
+    @keyframes pin { 0%,2%{opacity:0;transform:scale(1)} 5%{opacity:.9;transform:scale(1.04)} 11%{opacity:0;transform:scale(1)} 100%{opacity:0} }
+    @keyframes pex { 0%,17%{opacity:0;transform:scale(1)} 20%{opacity:.9;transform:scale(1.04)} 27%{opacity:0;transform:scale(1)} 100%{opacity:0} }
+    @keyframes pan { 0%,34%{opacity:0;transform:scale(1)} 37%{opacity:.9;transform:scale(1.04)} 44%{opacity:0;transform:scale(1)} 100%{opacity:0} }
+
+    /* journeys fan — cascade top to bottom */
+    .a1{animation:a1 7.2s linear infinite}.a2{animation:a2 7.2s linear infinite}.a3{animation:a3 7.2s linear infinite}.a4{animation:a4 7.2s linear infinite}
+    @keyframes a1 { 0%,42%{stroke-dashoffset:1} 48%,100%{stroke-dashoffset:0} }
+    @keyframes a2 { 0%,48%{stroke-dashoffset:1} 54%,100%{stroke-dashoffset:0} }
+    @keyframes a3 { 0%,54%{stroke-dashoffset:1} 60%,100%{stroke-dashoffset:0} }
+    @keyframes a4 { 0%,60%{stroke-dashoffset:1} 66%,100%{stroke-dashoffset:0} }
+    .jl1{animation:jl1 7.2s ease-out infinite}.jl2{animation:jl2 7.2s ease-out infinite}.jl3{animation:jl3 7.2s ease-out infinite}.jl4{animation:jl4 7.2s ease-out infinite}
+    @keyframes jl1 { 0%,47%{opacity:0} 50%{opacity:.9} 56%{opacity:0} 100%{opacity:0} }
+    @keyframes jl2 { 0%,53%{opacity:0} 56%{opacity:.9} 62%{opacity:0} 100%{opacity:0} }
+    @keyframes jl3 { 0%,59%{opacity:0} 62%{opacity:.9} 68%{opacity:0} 100%{opacity:0} }
+    @keyframes jl4 { 0%,65%{opacity:0} 68%{opacity:.9} 74%{opacity:0} 100%{opacity:0} }
+    .ck1{animation:ck1 7.2s ease-out infinite}.ck2{animation:ck2 7.2s ease-out infinite}.ck3{animation:ck3 7.2s ease-out infinite}.ck4{animation:ck4 7.2s ease-out infinite}
+    @keyframes ck1 { 0%,49%{opacity:0} 53%{opacity:1} 90%{opacity:1} 97%,100%{opacity:0} }
+    @keyframes ck2 { 0%,55%{opacity:0} 59%{opacity:1} 90%{opacity:1} 97%,100%{opacity:0} }
+    @keyframes ck3 { 0%,61%{opacity:0} 65%{opacity:1} 90%{opacity:1} 97%,100%{opacity:0} }
+    @keyframes ck4 { 0%,67%{opacity:0} 71%{opacity:1} 90%{opacity:1} 97%,100%{opacity:0} }
+
+    /* newsmakers card fan */
+    .news { padding: 88px 0 96px; overflow: hidden; }
+    .news-h { font-family: var(--serif); font-weight: 600; font-size: clamp(1.4rem, 3vw, 2rem); color: var(--ink); text-align: center; max-width: 24ch; margin: 0 auto 56px; line-height: 1.25; }
+
+    /* footer strip + changelog */
+    .site-footer { border-top: 1px solid var(--border); padding: 44px 0 56px; }
+    .changelog { margin-bottom: 40px; }
+    .cl-title { font-family: var(--sans); font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+    .changelog ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+    .changelog li { font-family: var(--sans); font-size: 14px; line-height: 1.55; color: var(--ink); display: flex; gap: 16px; align-items: baseline; padding: 16px 0; border-top: 1px solid var(--border); }
+    .changelog li:first-child { border-top: none; padding-top: 0; }
+    .changelog li:last-child { padding-bottom: 0; }
+    .cl-date { flex: none; width: 94px; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; padding-top: 26px; border-top: 1px solid var(--border); }
+    .footer-brand { font-family: var(--sans); font-size: 13px; color: var(--muted); }
+    .footer-brand b { font-weight: 700; color: var(--ink); }
+    .footer-socials { display: flex; align-items: center; gap: 18px; }
+    .footer-socials a { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-size: 13px; color: var(--muted); text-decoration: none; transition: color .18s var(--ease-out); }
+    .footer-socials a:hover { color: var(--ink); }
+    .footer-socials svg { width: 14px; height: 14px; fill: currentColor; }
+    @media (max-width: 560px) { .changelog li { flex-direction: column; gap: 2px; } .cl-date { width: auto; } }
+
+    /* run-the-skill section */
+    .skill-sec { border-top: 1px solid var(--border); padding: 80px 0 24px; text-align: center; }
+    .skill-h { font-family: var(--serif); font-weight: 600; font-size: clamp(1.4rem, 3vw, 2rem); color: var(--ink); margin: 0 auto 14px; }
+    .skill-lede { font-family: var(--sans); font-size: 1rem; color: var(--muted); max-width: 52ch; margin: 0 auto 34px; line-height: 1.6; }
+    .steps { list-style: none; margin: 0 auto 36px; padding: 0; max-width: 540px; text-align: left; display: flex; flex-direction: column; gap: 16px; }
+    .steps li { display: flex; gap: 14px; align-items: flex-start; font-family: var(--sans); font-size: 15px; color: var(--ink); line-height: 1.5; }
+    .step-n { flex: none; width: 26px; height: 26px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+    .steps code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; background: var(--panel); border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; }
+    .fan { position: relative; height: 356px; display: flex; justify-content: center; }
+    .fan-card {
+      position: absolute; top: 24px; width: 230px; height: 310px; border-radius: 16px; overflow: hidden;
+      display: flex; flex-direction: column; text-decoration: none; cursor: pointer;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.22);
+      transform-origin: bottom center;
+      transform: translateX(var(--x,0)) translateY(var(--y,0)) rotate(var(--r,0deg));
+      transition: transform .82s var(--ease-out), box-shadow .4s var(--ease-out);
+    }
+    .fan-card:hover { --y: -34px; z-index: 30 !important; box-shadow: 0 26px 54px rgba(0,0,0,0.30); transition-duration: .24s; }
+
+    .card-art { height: 188px; }
+    .card-foot { flex: 1; padding: 16px 18px 20px; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; }
+    .card-title { font-family: var(--serif); font-weight: 600; font-size: 1.7rem; line-height: 1; }
+    .card-by { font-family: var(--sans); font-weight: 500; font-size: 11.5px; margin-top: 3px; }
+
+    .instinct { background: var(--accent); }
+    .instinct .card-title { color: var(--on-accent); }
+    .instinct .card-by { color: rgba(251,246,241,0.82); }
+    .art-instinct { background-image: repeating-linear-gradient(90deg, rgba(251,246,241,0.6) 0 1.5px, transparent 1.5px 8px); -webkit-mask: linear-gradient(180deg,#000 55%, transparent); mask: linear-gradient(180deg,#000 55%, transparent); }
+
+    .lovable { background: #e9efe4; }
+    .lovable .card-title { color: #26332b; }
+    .lovable .card-by { color: #5c6b57; }
+    .art-lovable { background-image: linear-gradient(rgba(38,51,43,0.34) 1px, transparent 1px), linear-gradient(90deg, rgba(38,51,43,0.34) 1px, transparent 1px); background-size: 13px 13px; -webkit-mask: linear-gradient(180deg,#000 60%, transparent); mask: linear-gradient(180deg,#000 60%, transparent); }
+
+    .jev { background: #26332b; }
+    .jev .card-title { color: #eef3ea; }
+    .jev .card-by { color: #9aa898; }
+    .art-jev { background-image: repeating-linear-gradient(0deg, rgba(154,168,152,0.5) 0 1px, transparent 1px 9px); -webkit-mask: linear-gradient(180deg,#000 48%, transparent 86%); mask: linear-gradient(180deg,#000 48%, transparent 86%); }
+
+    @media (max-width: 760px) {
+      .fan { flex-direction: column; height: auto; gap: 16px; align-items: center; padding: 8px 0; }
+      .fan-card { position: static; transform: none !important; width: min(300px, 82vw); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; animation: none; transform: none; }
+      .packet { display: none; }
+      .fill, .feed-fill, .fan-fill { stroke-dashoffset: 0; animation: none; }
+      .ring, .pill-flash { animation: none; opacity: 0; }
+      .check { animation: none; opacity: 1; }
+      .fan-card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="bar">
+      <span class="wordmark">CheckTOS</span>
+      <nav class="nav">
+        <a class="nav-link" href="#examples">Examples</a>
+        <a class="nav-cta" href="downloads/checktos-skill.zip" download>Download Skill ↓</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Do you <span class="em">understand</span> the terms of service before you agree to them?</h1>
+    </section>
+
+    <section class="chart-shell">
+      <svg class="chart" viewBox="0 46 1050 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A document flows from input through extraction and analysis inside the downloadable skill, then fans out into four checked journeys.">
+        <defs>
+          <marker id="ah" markerWidth="8" markerHeight="8" refX="5" refY="3.5" orient="auto"><path d="M0.5,0.5 L6,3.5 L0.5,6.5 Z" class="head" /></marker>
+          <marker id="fh" markerWidth="7" markerHeight="7" refX="4.5" refY="3" orient="auto"><path d="M0.5,0.5 L5,3 L0.5,5.5 Z" fill="var(--muted)" /></marker>
+        </defs>
+
+        <!-- skill boundary (unlabeled; CTA labels it) -->
+        <rect class="skill-b reveal r4" x="300" y="88" width="418" height="288" rx="16" />
+
+        <!-- connectors input->extraction->analysis -->
+        <path class="track" d="M190,158 L327,158" />
+        <path class="track" d="M500,158 L536,158" />
+        <path class="fill c1" d="M190,158 L327,158" pathLength="1" />
+        <path class="fill c2" d="M500,158 L536,158" pathLength="1" />
+        <path d="M320,153 L330,158 L320,163 Z" class="head-accent" />
+        <path d="M529,153 L539,158 L529,163 Z" class="head-accent" />
+
+        <!-- feeder tracks + fills -->
+        <path class="feed-track" d="M110,286 L110,200" marker-end="url(#fh)" />
+        <path class="feed-track" d="M415,286 L415,200" marker-end="url(#fh)" />
+        <path class="feed-track" d="M620,286 L620,200" marker-end="url(#fh)" />
+        <path class="feed-fill fe" d="M415,286 L415,202" pathLength="1" />
+        <path class="feed-fill fa" d="M620,286 L620,202" pathLength="1" />
+
+        <!-- fan arrows analysis -> each journey -->
+        <path class="fan-track" d="M703,151 Q 786,120 844,72" />
+        <path class="fan-track" d="M705,155 Q 790,142 844,126" />
+        <path class="fan-track" d="M705,161 Q 790,175 844,185" />
+        <path class="fan-track" d="M703,165 Q 786,205 844,244" />
+        <path class="fan-fill a1" d="M703,151 Q 786,120 844,72" pathLength="1" marker-end="url(#ah)" />
+        <path class="fan-fill a2" d="M705,155 Q 790,142 844,126" pathLength="1" marker-end="url(#ah)" />
+        <path class="fan-fill a3" d="M705,161 Q 790,175 844,185" pathLength="1" marker-end="url(#ah)" />
+        <path class="fan-fill a4" d="M703,165 Q 786,205 844,244" pathLength="1" marker-end="url(#ah)" />
+
+        <!-- nodes -->
+        <g class="reveal r1">
+          <rect class="node-shadow" x="30" y="126" width="160" height="76" rx="12" />
+          <rect class="node-rect" x="30" y="120" width="160" height="76" rx="12" />
+          <text class="n-label" x="102" y="163" text-anchor="middle" font-size="15">TOS Input</text>
+        </g>
+        <g class="reveal r2">
+          <rect class="node-shadow" x="335" y="126" width="165" height="76" rx="12" />
+          <rect class="node-rect" x="335" y="120" width="165" height="76" rx="12" />
+          <text class="n-label" x="410" y="163" text-anchor="middle" font-size="15">Extraction</text>
+        </g>
+        <g class="reveal r3">
+          <rect class="node-shadow" x="540" y="126" width="160" height="76" rx="12" />
+          <rect class="node-rect" x="540" y="120" width="160" height="76" rx="12" />
+          <text class="n-label" x="612" y="163" text-anchor="middle" font-size="15">Analysis</text>
+        </g>
+        <rect class="ring rings pin" x="30" y="120" width="160" height="76" rx="12" />
+        <rect class="ring rings pex" x="335" y="120" width="165" height="76" rx="12" />
+        <rect class="ring rings pan" x="540" y="120" width="160" height="76" rx="12" />
+
+        <!-- feeders -->
+        <g class="reveal r2">
+          <rect class="feed-rect" x="30" y="286" width="160" height="70" rx="12" />
+          <text class="f-label" x="110" y="316" text-anchor="middle" font-size="13">PDF, Document</text>
+          <text class="f-label" x="110" y="336" text-anchor="middle" font-size="13">or URL</text>
+        </g>
+        <g class="reveal r3">
+          <rect class="feed-rect" x="335" y="286" width="160" height="70" rx="12" />
+          <text class="f-label" x="415" y="316" text-anchor="middle" font-size="13">Guidelines for</text>
+          <text class="f-label" x="415" y="336" text-anchor="middle" font-size="13">Extraction</text>
+        </g>
+        <g class="reveal r4">
+          <rect class="feed-rect" x="540" y="286" width="160" height="70" rx="12" />
+          <text class="f-label" x="620" y="316" text-anchor="middle" font-size="13">Guidelines for</text>
+          <text class="f-label" x="620" y="336" text-anchor="middle" font-size="13">Analysis</text>
+        </g>
+
+        <!-- journeys as separate pills, each checked -->
+        <g class="reveal r5">
+          <rect class="pill" x="850" y="52" width="170" height="40" rx="10" /><rect class="pill-flash jl1" x="850" y="52" width="170" height="40" rx="10" />
+          <text class="p-label" x="928" y="76" text-anchor="middle" font-size="12.5">Product TOS</text>
+          <path class="check ck1" d="M996,72 l4,4 l7,-8" />
+        </g>
+        <g class="reveal r5">
+          <rect class="pill" x="850" y="106" width="170" height="40" rx="10" /><rect class="pill-flash jl2" x="850" y="106" width="170" height="40" rx="10" />
+          <text class="p-label" x="928" y="130" text-anchor="middle" font-size="12.5">Usage TOS</text>
+          <path class="check ck2" d="M996,126 l4,4 l7,-8" />
+        </g>
+        <g class="reveal r6">
+          <rect class="pill" x="850" y="160" width="170" height="50" rx="10" /><rect class="pill-flash jl3" x="850" y="160" width="170" height="50" rx="10" />
+          <text class="p-label" x="924" y="180" text-anchor="middle" font-size="12">Feedback &amp;</text>
+          <text class="p-label" x="924" y="196" text-anchor="middle" font-size="12">Improvement TOS</text>
+          <path class="check ck3" d="M998,185 l4,4 l7,-8" />
+        </g>
+        <g class="reveal r6">
+          <rect class="pill" x="850" y="224" width="170" height="40" rx="10" /><rect class="pill-flash jl4" x="850" y="224" width="170" height="40" rx="10" />
+          <text class="p-label" x="924" y="248" text-anchor="middle" font-size="11.5">Legal Ramifications</text>
+          <path class="check ck4" d="M1000,244 l4,4 l7,-8" />
+        </g>
+
+        <!-- traveling token: terracotta chip + morphing cream glyph -->
+        <g class="packet">
+          <rect class="p-chip" x="-16" y="-16" width="32" height="32" rx="9" />
+          <g class="pa p-icon">
+            <rect x="-7" y="-9" width="12" height="17" rx="1.5" />
+            <path d="M2,-9 L5,-6 L2,-6 Z" />
+            <line x1="-4" y1="-3" x2="2" y2="-3" /><line x1="-4" y1="1" x2="2" y2="1" /><line x1="-4" y1="5" x2="0" y2="5" />
+          </g>
+          <g class="pb p-icon">
+            <line x1="-7" y1="-6" x2="7" y2="-6" /><line x1="-7" y1="0" x2="4" y2="0" /><line x1="-7" y1="6" x2="6" y2="6" />
+          </g>
+          <g class="pc p-icon">
+            <circle cx="-2" cy="-2" r="5.5" /><line x1="2" y1="2" x2="7" y2="7" />
+          </g>
+        </g>
+      </svg>
+    </section>
+
+    <section class="hero">
+      <p class="lede">CheckTOS reads the fine print and tells you plainly what you are agreeing to. Give it a URL, a PDF, or a document; it extracts the terms, checks them against fixed guidelines, and sorts them into four journeys.</p>
+      <a class="hero-cta" href="downloads/checktos-skill.zip" download>Download Skill ↓</a>
+    </section>
+
+    <section class="news" id="examples">
+      <h2 class="news-h">Here's a breakdown of the TOS of latest newsmakers in town</h2>
+      <div class="deck-wrap">
+        <div class="fan">
+          <a class="fan-card instinct" href="instinct.html"><div class="card-art art-instinct"></div><div class="card-foot"><span class="card-title">Instinct</span><span class="card-by">Spear Street Technology</span></div></a>
+          <a class="fan-card lovable" href="lovable.html"><div class="card-art art-lovable"></div><div class="card-foot"><span class="card-title">Lovable</span><span class="card-by">Lovable Labs</span></div></a>
+          <a class="fan-card jev" href="jev.html"><div class="card-art art-jev"></div><div class="card-foot"><span class="card-title">Jev</span><span class="card-by">TypeSafe AI</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="skill-sec" id="skill">
+      <h2 class="skill-h">Run it on any product yourself</h2>
+      <p class="skill-lede">CheckTOS is a skill you run in your own Claude, on your own tokens. Download it, drop it in, and point it at any terms of service.</p>
+      <ol class="steps">
+        <li><span class="step-n">1</span><span>Download the skill and unzip it into <code>~/.claude/skills/</code>.</span></li>
+        <li><span class="step-n">2</span><span>Restart Claude so it picks up the new skill.</span></li>
+        <li><span class="step-n">3</span><span>Paste a terms-of-service URL, or type <code>/checktos</code>, and read the breakdown.</span></li>
+      </ol>
+      <a class="hero-cta" href="downloads/checktos-skill.zip" download>Download Skill ↓</a>
+    </section>
+
+    <footer class="site-footer">
+      <div class="changelog">
+        <p class="cl-title">Changelog</p>
+        <ul>
+          <li><span class="cl-date">23 Sep 2026</span><span>Breakdown pages get a product shot up top, a reworked masthead, and a white background; Instinct now covers its privacy, acceptable-use, and SMS documents in full.</span></li>
+          <li><span class="cl-date">23 Sep 2026</span><span>Breakdown pages got a design pass: full quote cards, a bordered structure table, a sticky Contents rail, and roomier spacing.</span></li>
+          <li><span class="cl-date">23 Sep 2026</span><span>Breakdown pages rebuilt: a headline and ranked takeaways up top, a Clarity Meter, a sticky Contents rail, and every quote naming the company plainly.</span></li>
+          <li><span class="cl-date">22 Sep 2026</span><span>First breakdowns are live: Instinct, Lovable, and Jev.</span></li>
+          <li><span class="cl-date">22 Sep 2026</span><span>Download the CheckTOS skill and run any terms of service in your own Claude.</span></li>
+          <li><span class="cl-date">22 Sep 2026</span><span>Launched the site: the pipeline, the newsmaker deck, and the breakdown pages.</span></li>
+        </ul>
+      </div>
+      <div class="footer-row">
+        <span class="footer-brand"><b>CheckTOS</b> · Read the terms before you agree to them.</span>
+        <span class="footer-socials">
+          <a href="https://x.com/anirudhux" target="_blank" rel="noopener noreferrer" aria-label="@anirudhux on X">@anirudhux<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/in/anirudhux" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — anirudhux"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>LinkedIn</a>
+        </span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const fan = document.querySelector('.fan');
+      if (!fan) return;
+      const cards = [...fan.querySelectorAll('.fan-card')];
+      const mid = (cards.length - 1) / 2;
+      function layout(spread) {
+        const step = spread ? 176 : 96;   // px between card centers
+        const rot  = spread ? 2 : 9;       // deg tilt per step
+        cards.forEach((c, i) => {
+          const d = i - mid;
+          c.style.setProperty('--x', (d * step) + 'px');
+          c.style.setProperty('--r', (d * rot) + 'deg');
+          c.style.zIndex = i + 1;
+        });
+      }
+      layout(false);
+      fan.addEventListener('mouseenter', () => layout(true));
+      fan.addEventListener('mouseleave', () => layout(false));
+    })();
+  </script>
+</body>
+</html>

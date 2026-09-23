@@ -1,0 +1,11 @@
+.vercel
+
+# guideline docs — not pushed yet
+analysisguidelines.md
+extractionguidelines.md
+document-extraction-standards.md
+guidelines/
+checktos-skill/
+
+# end-to-end run records
+TOS files/
