@@ -143,7 +143,7 @@ footer { padding: 44px 0 72px; text-align: center; }
   .phead-text { flex: 1; min-width: 0; }
   .phead-media { margin: 0 0 32px; }
   .device-desktop { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 12px 34px rgba(38,51,43,.12); }
-  @media (max-width: 760px) { .phead-body { flex-direction: column; } .phead-media { align-self: center; } .device-desktop { width: 100%; } }
+  @media (max-width: 760px) { .phead-body { flex-direction: column; } .phead-media { align-self: center; } .device-desktop { width: 100%; } }  strong { font-weight: 600; color: var(--ink); }
   </style>
 </head>
 <body>
@@ -191,7 +191,7 @@ footer { padding: 44px 0 72px; text-align: center; }
             <div>Source: <span><a href="https://lovable.dev/terms">lovable.dev/terms</a></span></div>
             <div>Updated: <span>28 Aug 2026 (effective 15 Aug)</span></div>
             <div>Retrieved: <span>22 Sep 2026</span></div>
-            <div>Not included: <span>Platform Rules, Privacy Policy</span></div>
+            <div>Also read: <span>Platform Rules, Privacy Policy</span></div>
           </div>
         </div>
       </div>
@@ -223,42 +223,44 @@ footer { padding: 44px 0 72px; text-align: center; }
 
       <div class="journey" id="product">
         <h3 class="jname">Product</h3>
-        <p class="summary">Lovable lets you build apps and sites by prompting AI, with optional cloud hosting and a gateway to outside models. Your license is limited, and they can pull it: it ends the moment you break the terms or your account closes. You own what you build and the output the AI makes for you, as far as the third-party rights in the underlying models allow. The product runs on prepaid Credits that you cannot refund or cash out, subscriptions renew on their own, and fees do not come back.</p>
+        <p class="summary">Lovable lets you build apps and sites by prompting AI, with optional cloud hosting and a gateway to outside models. Your license is limited, and <strong>they can pull it</strong>: it ends the moment you break the terms or your account closes. You own what you build and the output the AI makes for you, as far as the third-party rights in the underlying models allow. The product runs on prepaid Credits that you <strong>cannot refund or cash out</strong>, subscriptions renew on their own, and fees do not come back.</p>
         <div class="qcard">
         <blockquote>"Lovable grants you a limited, non-exclusive, non-transferable, worldwide, revocable license to access and use the Services... This license terminates immediately if you violate these Terms or your account is terminated for any reason."<span class="src">License to Use Lovable's Services</span></blockquote>
         <blockquote>"Credits are prepaid and, except where required by law, non-refundable, and non-redeemable for cash or any value; they represent only a limited license to access the Services"<span class="src">Subscriptions, Fees, and Payments · Credits</span></blockquote>
         </div>
-        <p class="note">Each AI action burns Credits whether or not it worked, and Lovable can take back any lovable.app subdomain at any time, for any reason, usually on seven days' notice.</p>
+        <p class="note">Each AI action burns Credits whether or not it worked, and Lovable can take back <strong>any lovable.app subdomain at any time</strong>, for any reason, usually on seven days' notice.</p>
       </div>
 
       <div class="journey" id="usage">
         <h3 class="jname">Usage</h3>
-        <p class="summary">You have to be eighteen, keep your details current, and follow a long list of rules. Sign in with a work email and your employer's admins can run and shut down the account, along with everything in it. You cannot put health data or other sensitive categories through it unless your plan says so, and you carry the rights and consents for whatever you run.</p>
+        <p class="summary">You have to be eighteen, keep your details current, and follow a long list of rules. The Platform Rules set the content limits for anything you build, and Lovable can <strong>remove or block a project</strong> it decides breaks them. Sign in with a work email and your employer's admins can <strong>run and shut down the account</strong>, along with everything in it. You cannot put health data or other sensitive categories through it unless your plan says so, and you carry the rights and consents for whatever you run.</p>
         <div class="qcard">
         <blockquote>"Managed account administrators may access, manage, retain, suspend, or terminate the account and its contents, including any associated Customer Data."<span class="src">Your Account · Organization Accounts</span></blockquote>
         <blockquote>"you agree not to upload, input, or otherwise provide through the Services any protected health information subject to HIPAA, or other special or sensitive categories of data (including financial account numbers, payment card data, government identifiers, or biometric data)."<span class="src">Your Content and Data · No Sensitive Data</span></blockquote>
+        <blockquote>"If we determine that a project includes content that is not allowed, we may remove or block it."<span class="src">Platform Rules · Introduction</span></blockquote>
         </div>
-        <p class="note">"high-risk" and "sensitive contexts" mark where you must not lean on the AI's output, and the document defines neither.</p>
+        <p class="note">"high-risk" and "sensitive contexts" mark where you must not lean on the AI's output, and the document defines neither. The Platform Rules keep Lovable as the final judge of how they are read, and let it revise them as it goes (Platform Rules · Introduction).</p>
       </div>
 
       <div class="journey" id="feedback">
         <h3 class="jname">Feedback &amp; improvement</h3>
-        <p class="summary">Lovable takes a broad license over your data, model training included, and it is on from the start. You can tell them to stop using your data for training and their other business uses, and they will honor it going forward, free, on any plan. They also keep a de-identified copy of your data for good. Feedback you send, they can use freely, and Lovable owns all the usage data.</p>
+        <p class="summary">Lovable takes a broad license over your data, <strong>model training included</strong>, and it is on from the start. You can <strong>switch model training off</strong> in your account settings, free, on any plan, and the AI features keep working. The Privacy Policy carves out the data your own app collects from its users: Lovable holds it in your project's database and does not train on it. They also keep a de-identified copy of your data for good. Feedback you send, they can use freely, and Lovable owns all the usage data.</p>
         <div class="qcard">
         <blockquote>"You grant Lovable a worldwide, perpetual, royalty-free license to use, copy, modify, process, analyze, and otherwise exploit your Customer Data for Lovable's business purposes, including... developing and training artificial intelligence and machine learning models"<span class="src">Your Content and Data · Rights in Customer Data</span></blockquote>
         <blockquote>"You may tell Lovable at any time that you do not want your Customer Data used for model training or the other business purposes described above, and Lovable will honor that request for prospective use, free of charge and regardless of your plan."<span class="src">Your Content and Data · Rights in Customer Data</span></blockquote>
+        <blockquote>"Your Users' Data (Section 2), including App Usage Data. It is held in your project's own database and storage, and we do not use it to train our models."<span class="src">Privacy Policy · AI Model Training and Your Opt-Out</span></blockquote>
         </div>
-        <p class="note">The Privacy Policy wins over this section wherever the two disagree, and Lovable owns every scrap of usage data to use as it likes.</p>
+        <p class="note">The Privacy Policy wins over this section wherever the two disagree, and Lovable owns every scrap of usage data to use as it likes. For advertising it shares only pseudonymized identifiers with platforms such as Meta and Google, and it does not hand your Customer Content or your users' data to ad platforms unless you tell it to (Privacy Policy · Advertising and Sharing With Ad Platforms). It keeps personal data only as long as it needs it, then deletes or de-identifies it (Privacy Policy · Data Retention).</p>
       </div>
 
       <div class="journey" id="legal">
         <h3 class="jname">Legal ramifications</h3>
-        <p class="summary">Disputes go to court in Delaware; there is no arbitration. You give up class actions and a jury. The most you can recover is the fees you paid in the prior twelve months, and Lovable rules out liability for third-party outages, wrong AI output, and lost data, except where its own gross negligence or willful misconduct is to blame. You indemnify Lovable one way. It can end your account with notice for convenience, or on the spot for breach, fraud, or abuse, and your leftover Credits can vanish.</p>
+        <p class="summary">Disputes go to court in Delaware; <strong>there is no arbitration</strong>. You give up class actions and a jury. The most you can recover is the fees you paid in the prior twelve months, and Lovable rules out liability for third-party outages, wrong AI output, and lost data, except where its own gross negligence or willful misconduct is to blame. You indemnify Lovable one way. It can end your account with notice for convenience, or on the spot for breach, fraud, or abuse, and your leftover <strong>Credits can vanish</strong>.</p>
         <div class="qcard">
         <blockquote>"the state and federal courts located in Delaware will have exclusive jurisdiction over all disputes... Any dispute with Lovable must be brought on an individual basis and not as a plaintiff or class member in any purported class, consolidated, or representative proceeding. You and Lovable each waive any right to a jury trial"<span class="src">Governing Law and Dispute Resolution</span></blockquote>
         <blockquote>"IN NO EVENT WILL LOVABLE'S TOTAL LIABILITY FOR ALL CLAIMS... EXCEED THE AMOUNT YOU PAID LOVABLE FOR THE SERVICES IN THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE CLAIM"<span class="src">Limitation of Liability</span></blockquote>
         </div>
-        <p class="note">There is no arbitration clause; material changes come with at least thirty days' notice, and your statutory refund and cancellation rights as a consumer stay intact.</p>
+        <p class="note">There is no arbitration clause; material changes come with at least thirty days' notice, and your statutory refund and cancellation rights as a consumer <strong>stay intact</strong>.</p>
       </div>
     </section>
 
@@ -269,12 +271,12 @@ footer { padding: 44px 0 72px; text-align: center; }
             <div class="flags">
 <div class="flagrow"><div><span class="flagname">One-sided</span><br><span class="flagcount">3 found</span></div>
         <div class="flagitems">Lovable can assign the Terms freely; you cannot without consent (Assignment). It can reclaim any subdomain or username at its own discretion (Subdomain Usage; Usernames). Its metering and billing records count as <span class="q">"authoritative and... final and binding"</span> (Invoices and Records).</div></div>
-      <div class="flagrow"><div><span class="flagname">Absolute</span><br><span class="flagcount">2 found</span></div>
-        <div class="flagitems">The service comes <span class="q">"AS IS" and "AS AVAILABLE"</span> (Disclaimers of Warranties). Beta features can go <span class="q">"without notice and without liability"</span> (Beta Features).</div></div>
+      <div class="flagrow"><div><span class="flagname">Absolute</span><br><span class="flagcount">3 found</span></div>
+        <div class="flagitems">The service comes <span class="q">"AS IS" and "AS AVAILABLE"</span> (Disclaimers of Warranties). Beta features can go <span class="q">"without notice and without liability"</span> (Beta Features). Lovable keeps <span class="q">"the final call on how the Platform Rules are interpreted"</span> (Platform Rules).</div></div>
       <div class="flagrow"><div><span class="flagname">Undefined terms</span><br><span class="flagcount">3 found</span></div>
         <div class="flagitems"><span class="q">"high-risk / sensitive contexts"</span> (License Restrictions, AI Output); <span class="q">"abusive use"</span> (Indemnification); <span class="q">"mission-critical"</span> (Subdomain Usage).</div></div>
-      <div class="flagrow"><div><span class="flagname">Scope limits</span><br><span class="flagcount">4 found</span></div>
-        <div class="flagitems">No sensitive or health data unless your plan allows it (No Sensitive Data); consumer statutory rights kept intact (No Refunds); export and sanctions limits (Export Controls); an EU DSA contact point (DSA Contact Points).</div></div>
+      <div class="flagrow"><div><span class="flagname">Scope limits</span><br><span class="flagcount">5 found</span></div>
+        <div class="flagitems">No sensitive or health data unless your plan allows it (No Sensitive Data); consumer statutory rights kept intact (No Refunds); export and sanctions limits (Export Controls); an EU DSA contact point (DSA Contact Points); extra privacy rights for U.S. state, Canada, and Brazil residents (Privacy Policy).</div></div>
       <div class="flagrow"><div><span class="flagname">Gaps</span><br><span class="flagcount">3 found</span></div>
         <div class="flagitems">No retention period for Customer Data that is not de-identified; nothing on what happens to your hosted apps after termination; no promise about which country your data is processed or stored in.</div></div>
       <div class="flagrow"><div><span class="flagname">Contradictions</span><br><span class="flagcount">0 found</span></div>
@@ -290,7 +292,7 @@ footer { padding: 44px 0 72px; text-align: center; }
 
     <section class="block" style="border-bottom:none;">
       <h2 class="sec">Caveats</h2>
-      <p class="caveat">This explains what the document says. It does not read the law for you, weigh whether a clause would hold up, or guess what happens if you break the terms. It is not legal advice, and it does not judge Lovable. Every quote is word-for-word from the version updated 28 August 2026, read on 22 September 2026. The Platform Rules and Privacy Policy are named but not part of this page, so the read is partial.</p>
+      <p class="caveat">This explains what the documents say. It does not read the law for you, weigh whether a clause would hold up, or guess what happens if you break the terms. It is not legal advice, and it does not judge Lovable. Every quote is word-for-word from its source: the Terms of Service updated 28 August 2026, the Privacy Policy updated 15 September 2026, and the Platform Rules updated February 2026. The terms were read on 22 September 2026 and the linked Platform Rules and Privacy Policy on 23 September 2026. Both binding documents, named but not part of this page before, are now read and folded in, so the read is no longer partial.</p>
     </section>
 
       </div>

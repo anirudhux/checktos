@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jev · CheckTOS</title>
-  <meta name="description" content="A plain-language breakdown of Jev's Terms of Use (TypeSafe AI). This page governs the website only; the product terms sit in a separate agreement." />
+  <meta name="description" content="A plain-language breakdown of Jev (TypeSafe AI): the Master Customer Agreement that governs the product, and the separate Terms of Use that governs the website. Switch between the two reads." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="CheckTOS" />
-  <meta property="og:title" content="Jev's terms of use, in plain language" />
-  <meta property="og:description" content="Jev's terms cover the website only; the product terms sit in a separate agreement. Here is what the page actually says." />
+  <meta property="og:title" content="Jev's terms, in plain language" />
+  <meta property="og:description" content="TypeSafe runs Jev on a Master Customer Agreement and its website on a separate Terms of Use. Here is what each one says." />
   <meta property="og:url" content="https://checktos.com/jev.html" />
   <meta property="og:image" content="https://checktos.com/og.png" />
   <meta property="og:image:width" content="2400" />
   <meta property="og:image:height" content="1260" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jev's terms of use, in plain language" />
-  <meta name="twitter:description" content="Jev's terms cover the website only. Here is what the page actually says." />
+  <meta name="twitter:title" content="Jev's terms, in plain language" />
+  <meta name="twitter:description" content="The product agreement and the website terms, read side by side." />
   <meta name="twitter:image" content="https://checktos.com/og.png" />
   <meta name="twitter:site" content="@anirudhux" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,7 +50,7 @@ header.bar .wrap { display: flex; align-items: center; justify-content: space-be
 .phead { padding: 64px 0 44px; border-bottom: 1px solid var(--border); }
 .pname { font-family: var(--serif); font-weight: 600; font-size: clamp(2.8rem, 8vw, 4.2rem); line-height: 1; margin: 0 0 8px; letter-spacing: -0.01em; }
 .pby { font-family: var(--sans); font-size: 0.95rem; color: var(--muted); margin: 6px 0 0; }
-  .pintro { font-size: 1.05rem; color: var(--ink); line-height: 1.6; margin: 6px 0 30px; max-width: 62ch; }
+  .pintro { font-size: 1.05rem; color: var(--ink); line-height: 1.6; margin: 6px 0 0; max-width: 62ch; }
 
 /* clarity callout with a plain-text pill */
 .clarity-meter { background: var(--panel); border-radius: 12px; padding: 22px 24px; margin: 0 0 30px; }
@@ -130,6 +130,7 @@ footer { padding: 44px 0 72px; text-align: center; }
   html { scroll-behavior: smooth; }
   section.block, .journey { scroll-margin-top: 76px; }
   .toc { counter-reset: sec; display: flex; flex-direction: column; gap: 18px; margin: 0; }
+  .toc[hidden] { display: none; }
   .toc a { counter-increment: sec; display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: baseline; font-family: var(--sans); font-size: 14px; line-height: 1.35; color: var(--ink); text-decoration: none; }
   .toc a::before { content: counter(sec, decimal-leading-zero); font-size: 12px; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
   .toc a:hover, .toc a.active { color: var(--accent); }
@@ -144,6 +145,15 @@ footer { padding: 44px 0 72px; text-align: center; }
   .phead-media { margin: 0 0 32px; }
   .device-desktop { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 12px 34px rgba(38,51,43,.12); }
   @media (max-width: 760px) { .phead-body { flex-direction: column; } .phead-media { align-self: center; } .device-desktop { width: 100%; } }
+
+  /* two-read switcher */
+  .switcher { display: inline-flex; gap: 4px; background: var(--panel); border-radius: 999px; padding: 4px; margin: 56px 0 30px; }
+  .seg { font-family: var(--sans); font-weight: 600; font-size: 13px; border: none; background: transparent; color: var(--muted); padding: 9px 20px; border-radius: 999px; cursor: pointer; transition: background .18s var(--ease-out), color .18s var(--ease-out); }
+  .seg.active { background: var(--ink); color: var(--bg); }
+  .seg:hover:not(.active) { color: var(--ink); }
+  .panel[hidden] { display: none; }
+  .panel > section.block:first-of-type { padding-top: 0; }
+  @media (max-width: 560px) { .switcher { display: flex; width: 100%; } .seg { flex: 1; text-align: center; padding: 10px 8px; } }  strong { font-weight: 600; color: var(--ink); }
   </style>
 </head>
 <body>
@@ -174,25 +184,7 @@ footer { padding: 44px 0 72px; text-align: center; }
       <div class="phead-body">
         <div class="phead-media"><img class="device device-desktop" src="case-study-mockups/jev-mockup.png" alt="TypeSafe, maker of Jev" /></div>
         <div class="phead-text">
-          <p class="pintro">Jev is a product from TypeSafe AI. What it does, and who it is for, these terms do not say, because the page below only governs TypeSafe's website. The real product agreement is a separate document.</p>
-
-          <div class="clarity-meter">
-            <div class="cm-head">
-              <span class="cm-label">Clarity Meter</span>
-              <span class="cm-band">Readable</span>
-            </div>
-            <div class="cm-track"><span class="cm-node" style="left: 33%"><span class="cm-tip">Some legalese</span></span><span class="cm-node" style="left: 67%"><span class="cm-tip">Dense</span></span><span class="cm-marker" style="left: 46%"></span></div>
-            <div class="cm-ends"><span>Plain English</span><span>Needs a lawyer</span></div>
-            <hr class="cm-sep" />
-            <p class="cm-note">It is short and boilerplate, and the reading is not the hard part; the terms you would actually need are not on this page.</p>
-          </div>
-
-          <div class="meta">
-            <div>Source: <span><a href="https://typesafe.ai/legal/terms">typesafe.ai/legal/terms</a></span></div>
-            <div>Updated: <span>19 Sep 2026</span></div>
-            <div>Retrieved: <span>22 Sep 2026</span></div>
-            <div>Not included: <span>separate product agreement, Privacy Policy</span></div>
-          </div>
+          <p class="pintro">TypeSafe AI keeps two sets of terms. The Master Customer Agreement governs the product. The Terms of Use governs the website. Both are public, and you can switch between the two reads below.</p>
         </div>
       </div>
 
@@ -200,88 +192,223 @@ footer { padding: 44px 0 72px; text-align: center; }
 
     <div class="layout">
       <aside class="rail">
-    <nav class="toc" aria-label="Contents">
-      <a href="#product">Product</a>
-      <a href="#usage">Usage</a>
-      <a href="#feedback">Feedback &amp; improvement</a>
-      <a href="#legal">Legal ramifications</a>
-      <a href="#structure">Structure summary</a>
+    <nav class="toc" data-panel="product" aria-label="Contents">
+      <a href="#pt-product">Product</a>
+      <a href="#pt-usage">Usage</a>
+      <a href="#pt-feedback">Feedback &amp; improvement</a>
+      <a href="#pt-legal">Legal ramifications</a>
+      <a href="#pt-structure">Structure summary</a>
+    </nav>
+    <nav class="toc" data-panel="website" aria-label="Contents" hidden>
+      <a href="#wt-product">Product</a>
+      <a href="#wt-usage">Usage</a>
+      <a href="#wt-feedback">Feedback &amp; improvement</a>
+      <a href="#wt-legal">Legal ramifications</a>
+      <a href="#wt-structure">Structure summary</a>
     </nav>
       </aside>
       <div class="doc">
 
-    <section class="block">
-      <p class="lead-head">This page covers TypeSafe's website only. The terms for the actual product are in a separate agreement you will not find here.</p>
-      <ol class="takeaways">
-        <li>The product terms are not on this page, so nothing here tells you how the product treats your data or your work.</li>
-        <li>Any feedback you send hands TypeSafe a perpetual, irrevocable, sublicensable right to use it however it likes.</li>
-        <li>Disputes go to individual arbitration and you waive class actions; opting out needs a mailed letter within thirty days.</li>
-        <li>The terms cap liability at $100.</li>
-      </ol>
-    </section>
+    <div class="switcher" role="tablist" aria-label="Which terms to read">
+      <button class="seg active" type="button" role="tab" aria-selected="true" data-target="product">Product terms</button>
+      <button class="seg" type="button" role="tab" aria-selected="false" data-target="website">Website terms</button>
+    </div>
 
-    <section class="block">
+    <!-- ============ PRODUCT TERMS PANEL ============ -->
+    <div class="panel" data-panel="product">
 
-      <div class="journey" id="product">
-        <h3 class="jname">Product</h3>
-        <p class="summary">This page barely mentions a product. It covers the website, and it says outright that using any real TypeSafe product runs on a separate agreement you will not find here. The license on this page lets you browse the site, nothing more.</p>
-        <div class="qcard">
-        <blockquote>"These Terms of Use are a legally binding contract between you and TypeSafe regarding your use of the Site. If you enter into a separate agreement with TypeSafe for the use of any TypeSafe products or services... the terms of that separate agreement will govern your access to and use of those products and service."<span class="src">Preamble</span></blockquote>
-        <blockquote>"TypeSafe grants you, solely for your personal use, a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to access and use the Site."<span class="src">Section 3(a) · Limited License</span></blockquote>
+      <div class="clarity-meter">
+        <div class="cm-head">
+          <span class="cm-label">Clarity Meter</span>
+          <span class="cm-band">Needs a lawyer</span>
         </div>
-        <p class="note">How the actual product treats you, your data, and what you make with it lives in a separate agreement that is not on this page.</p>
+        <div class="cm-track"><span class="cm-node" style="left: 33%"><span class="cm-tip">Some legalese</span></span><span class="cm-node" style="left: 67%"><span class="cm-tip">Dense</span></span><span class="cm-marker" style="left: 78%"></span></div>
+        <div class="cm-ends"><span>Plain English</span><span>Needs a lawyer</span></div>
+        <hr class="cm-sep" />
+        <p class="cm-note">This is a full commercial agreement, dense with defined terms and long all-caps blocks for liability, disclaimers, and arbitration.</p>
       </div>
 
-      <div class="journey" id="usage">
-        <h3 class="jname">Usage</h3>
-        <p class="summary">The usual browsing rules apply: no illegal use, no touching or copying the site, no reverse engineering, no scrapers or bots. The site is meant for visitors in the United States, and reaching it from anywhere that makes access illegal is off-limits.</p>
-        <div class="qcard">
-        <blockquote>"you may not: (i) use the Site for any illegal purpose... (v) reverse engineer or otherwise attempt to discover the source code... or (vi) use... 'robots,' 'spiders,' 'scrapers,' 'webcrawlers,' or other computer programs that monitor, copy, or download data or other content"<span class="src">Section 3(b) · License Restrictions</span></blockquote>
-        <blockquote>"The Site is intended for visitors located within the United States. TypeSafe makes no representation that the Site is appropriate or available for use outside of the United States."<span class="src">Section 13(g) · International Use</span></blockquote>
+      <div class="meta">
+        <div>Source: <span><a href="https://typesafe.ai/legal/mca">typesafe.ai/legal/mca</a></span></div>
+        <div>Updated: <span>19 Sep 2026</span></div>
+        <div>Retrieved: <span>23 Sep 2026</span></div>
+        <div>Also read: <span>Privacy Policy, Data Processing Addendum</span></div>
+      </div>
+
+      <hr class="phead-sep" />
+
+      <section class="block">
+        <p class="lead-head">The agreement that actually governs Jev keeps your inputs and outputs yours, and TypeSafe will not train on your data without your consent.</p>
+        <ol class="takeaways">
+          <li>TypeSafe does not claim your Input and assigns you the Output, so what you put in and get out stays yours.</li>
+          <li>TypeSafe will not put your Customer Data into a training set without your prior consent, and the Privacy Policy makes the same promise for your Input.</li>
+          <li>Liability on both sides is capped at the greater of twelve months of fees or fifty dollars, and indemnity runs both ways.</li>
+          <li>Disputes go to individual arbitration with a class-action waiver and no opt-out, under California law.</li>
+        </ol>
+      </section>
+
+      <section class="block">
+
+        <div class="journey" id="pt-product">
+          <h3 class="jname">Product</h3>
+          <p class="summary">The Services are the TypeSafe-hosted console at console.typesafe.ai and the API. You get a limited license to use them for the length of your deal. On ownership the agreement is plain: TypeSafe does not claim your Input, disclaims the Output, and <strong>assigns the Output to you</strong>. TypeSafe keeps everything on its own side, the Services, the Telemetry, and the technology behind them.</p>
+          <div class="qcard">
+          <blockquote>"TypeSafe grants to Customer a limited, non-exclusive, non-transferable, non-sublicensable license during the Term to: (a) access and use the Services in accordance with the applicable documentation made available by TypeSafe from time to time"<span class="src">Section 2.1 · License</span></blockquote>
+          <blockquote>"TypeSafe does not claim ownership of Input and TypeSafe disclaims ownership of Output. TypeSafe hereby assigns to Customer all of its right, title, and interest, if any, in the Output."<span class="src">Section 4.2 · Output</span></blockquote>
+          </div>
+          <p class="note">TypeSafe and its licensors keep all rights in the Services, Documentation, Telemetry, and TypeSafe technology, and any product feedback or suggestions you send, it "may use and exploit... without restriction or obligation" (Section 11).</p>
         </div>
-        <p class="note">"unauthorized use" and "misuse" set off your indemnity, and the document defines neither (Section 9).</p>
-      </div>
 
-      <div class="journey" id="feedback">
-        <h3 class="jname">Feedback &amp; improvement</h3>
-        <p class="summary">The one clause here with real weight is about feedback. Whatever you send counts as non-confidential, and you hand TypeSafe a perpetual, irrevocable, sublicensable right to use it for anything. They also tell you flat out to keep anything confidential off the site. There is no training clause here; this page covers the website, and the product terms live elsewhere.</p>
-        <div class="qcard">
-        <blockquote>"Do not submit any information or other materials that you consider confidential or proprietary through the Site."<span class="src">Section 3(c) · Information You Submit</span></blockquote>
-        <blockquote>"you hereby grant TypeSafe an unrestricted, perpetual, irrevocable, non-exclusive, fully paid-up, royalty-free, transferable, sublicensable right to exploit the Feedback in any manner and for any purpose, including to improve the Site and create other products and services."<span class="src">Section 3(c) · Information You Submit</span></blockquote>
+        <div class="journey" id="pt-usage">
+          <h3 class="jname">Usage</h3>
+          <p class="summary">Day-to-day use comes with hard limits. You cannot use the Services or Output to distill or <strong>train a competing model</strong>, reverse engineer them, or exceed the Usage Limits. You carry the Input: its content, its accuracy, and every consent needed for TypeSafe to process it. Where your Input holds personal data, the Data Processing Addendum makes TypeSafe a processor that acts only on your written instructions.</p>
+          <div class="qcard">
+          <blockquote>"Customer will not do (and will not attempt to do)... (b) use the Services or any Output... to perform model distillation, train a model to imitate the output of the Services, or develop (or to facilitate the development of) a similar or competing product or service"<span class="src">Section 2.3 · License Restrictions</span></blockquote>
+          <blockquote>"Customer is responsible for Input, including its content and accuracy, and will comply with Laws when using the Services."<span class="src">Section 5 · Customer Obligations</span></blockquote>
+          </div>
+          <p class="note">On personal data the Data Processing Addendum makes TypeSafe a processor that "will only Process Customer Personal Data to provide the Services and in accordance with Customer's documented instructions," will not sell or share it, gives you fifteen days to object to a new subprocessor, and reports a security incident within seventy-two hours (Data Processing Addendum, Sections 2.1, 2.2, 3.2, 5.2). TypeSafe may suspend access for a breach, a payment thirty days overdue, a change in law, or risk to other customers (Section 6).</p>
         </div>
-        <p class="note">Whether the product trains on your inputs would sit in the separate product agreement. This page does not cover it.</p>
-      </div>
 
-      <div class="journey" id="legal">
-        <h3 class="jname">Legal ramifications</h3>
-        <p class="summary">Disputes go to individual arbitration through JAMS, and you give up class actions and a jury. You can opt out, but only by mailing a paper letter inside thirty days. The most you can recover is a hundred dollars. You indemnify TypeSafe one way. They can change the terms whenever they like and hold you to the latest version each time you visit, and Delaware law governs.</p>
-        <div class="qcard">
-        <blockquote>"YOU AND TYPESAFE AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING."<span class="src">Section 12(h) · No Class Actions</span></blockquote>
-        <blockquote>"THE AGGREGATE LIABILITY OF TYPESAFE TO YOU FOR ALL CLAIMS... IS LIMITED TO $100 USD."<span class="src">Section 11(b) · Limitation of Liability</span></blockquote>
+        <div class="journey" id="pt-feedback">
+          <h3 class="jname">Feedback &amp; improvement</h3>
+          <p class="summary">This is where the product terms stand apart. TypeSafe will not include your Customer Data in a training set without your prior consent, and the Privacy Policy repeats the promise for your Input. The one wide opening is Telemetry: the logs, hashes, statistics, and "learnings" about how you use the Services, which TypeSafe may process <strong>without restriction and keep for good</strong>.</p>
+          <div class="qcard">
+          <blockquote>"The foregoing license does not grant TypeSafe the right to, and TypeSafe will not, include Customer Data in a dataset used to train (i.e., to modify the model weights of) any artificial intelligence or machine learning models without Customer's prior consent."<span class="src">Section 4.1 · Use of Customer Data</span></blockquote>
+          <blockquote>"We will not train or fine tune any artificial intelligence or machine learning models on your prompts or other Input."<span class="src">Privacy Policy · Personal Data We Collect</span></blockquote>
+          </div>
+          <p class="note">The Privacy Policy also says TypeSafe "will not disclose any Input to a third party other than our service providers," and that it may make "anonymized or aggregated data that we may use for lawful purposes" (Privacy Policy). The training bar turns on "Customer's prior consent," and the agreement does not say how that consent gets asked for or given (Section 4.1).</p>
         </div>
-        <p class="note">The arbitration opt-out needs a letter in the post inside thirty days, and small-claims, agency, injunctive, and IP suits stay out of arbitration (Section 12).</p>
-      </div>
-    </section>
 
-    <section class="block" id="structure">
-      <h2 class="sec">Structure summary</h2>
-      <p class="sec-sub">Each item below is in the document, quoted and located, with no score and no judgment of TypeSafe.</p>
+        <div class="journey" id="pt-legal">
+          <h3 class="jname">Legal ramifications</h3>
+          <p class="summary">Disputes leave the courts. You arbitrate individually through JAMS and give up class actions and a jury, with no opt-out. Liability on both sides is capped at the greater of twelve months of fees or fifty dollars. Indemnity runs both ways: TypeSafe covers third-party claims that the Services infringe United States intellectual property, and you cover claims about your Input. When the deal ends, TypeSafe can <strong>delete your Customer Data whenever it likes</strong>. California law governs, and TypeSafe can change the agreement on sixty days' notice.</p>
+          <div class="qcard">
+          <blockquote>"EACH PARTY'S... ENTIRE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT WILL NOT EXCEED IN AGGREGATE THE GREATER OF (A) THE AMOUNTS PAID OR PAYABLE BY CUSTOMER TO TYPESAFE... DURING THE 12 MONTHS PRIOR... AND (B) $50 USD."<span class="src">Section 12.2 · Liability Cap</span></blockquote>
+          <blockquote>"CUSTOMER AND TYPESAFE AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN CUSTOMER'S OR TYPESAFE'S INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING."<span class="src">Section 15.7 · No Class Actions</span></blockquote>
+          </div>
+          <p class="note">The indemnity is two-way: TypeSafe defends you against claims that the Services infringe a U.S. patent, copyright, trademark, or trade secret, while you defend TypeSafe against claims about your Input (Sections 13.1, 13.2). On termination TypeSafe "will be under no obligation to store or retain Customer Data and may delete Customer Data at any time in its sole discretion" (Section 10.3). There is no arbitration opt-out here, unlike the website terms (Section 15).</p>
+        </div>
+      </section>
 
-            <div class="flags">
-<div class="flagrow"><div><span class="flagname">One-sided</span><br><span class="flagcount">3 found</span></div>
-        <div class="flagitems">TypeSafe can assign the Terms with no notice or consent; you cannot without consent (Section 13a). Indemnity runs one way (Section 9). It can change the terms whenever it likes (Section 6).</div></div>
-      <div class="flagrow"><div><span class="flagname">Absolute</span><br><span class="flagcount">2 found</span></div>
-        <div class="flagitems"><span class="q">"TypeSafe will have no liability for any change to the Site or any suspension or termination"</span> (Section 7). An <span class="q">"AS IS" and "AS AVAILABLE"</span> disclaimer (Section 10a).</div></div>
-      <div class="flagrow"><div><span class="flagname">Undefined terms</span><br><span class="flagcount">2 found</span></div>
-        <div class="flagitems"><span class="q">"unauthorized use"</span> and <span class="q">"misuse"</span> (Section 9), which set off your indemnity.</div></div>
-      <div class="flagrow"><div><span class="flagname">Scope limits</span><br><span class="flagcount">4 found</span></div>
-        <div class="flagitems">Small-claims, agency, injunctive, and IP suits stay out of arbitration (Section 12b); a thirty-day opt-out by post (Section 12c); TypeSafe visitors only (Section 13g); a California residents notice (Section 13f).</div></div>
-      <div class="flagrow"><div><span class="flagname">Gaps</span><br><span class="flagcount">3 found</span></div>
-        <div class="flagitems">The real product terms are not on this page; nothing on product data, training, or who owns what you make; the arbitration fees are left to the JAMS Rules.</div></div>
-      <div class="flagrow"><div><span class="flagname">Contradictions</span><br><span class="flagcount">0 found</span></div>
-        <div class="flagitems">None found.</div></div>
+      <section class="block" id="pt-structure">
+        <h2 class="sec">Structure summary</h2>
+        <p class="sec-sub">Each item below is in the document, quoted and located, with no score and no judgment of TypeSafe.</p>
+
+              <div class="flags">
+  <div class="flagrow"><div><span class="flagname">One-sided</span><br><span class="flagcount">2 found</span></div>
+          <div class="flagitems">Neither party may assign, <span class="q">"except that TypeSafe may assign this Agreement in connection with a merger, reorganization, acquisition, or other transfer of all or substantially all its assets or voting securities"</span> (Section 16.1). TypeSafe may suspend access on its own initiative, with prior notice only where practicable (Section 6).</div></div>
+        <div class="flagrow"><div><span class="flagname">Absolute</span><br><span class="flagcount">2 found</span></div>
+          <div class="flagitems">An <span class="q">"AS IS" and "AS AVAILABLE"</span> disclaimer (Section 9.3). On termination TypeSafe <span class="q">"may delete Customer Data at any time in its sole discretion"</span> (Section 10.3).</div></div>
+        <div class="flagrow"><div><span class="flagname">Undefined terms</span><br><span class="flagcount">2 found</span></div>
+          <div class="flagitems"><span class="q">"materially"</span> sets the service warranty and <span class="q">"misuse"</span> carves it out (Section 9.1); neither is defined.</div></div>
+        <div class="flagrow"><div><span class="flagname">Scope limits</span><br><span class="flagcount">3 found</span></div>
+          <div class="flagitems">Arbitration excludes small-claims, agency, injunctive-in-aid, and IP suits and waives class actions with no opt-out (Sections 15.2, 15.7); the Data Processing Addendum caps international transfers and gives a fifteen-day subprocessor objection (Sections 3.2, 6); the service warranty reaches only conformance with the Documentation (Section 9.1).</div></div>
+        <div class="flagrow"><div><span class="flagname">Gaps</span><br><span class="flagcount">3 found</span></div>
+          <div class="flagitems">The Order that carries the Term, Fees, and Usage Limits is not public; the consent mechanism for training on Customer Data is not described (Section 4.1); no fixed retention period, since Customer Data may be deleted at TypeSafe's discretion (Section 10.3).</div></div>
+        <div class="flagrow"><div><span class="flagname">Contradictions</span><br><span class="flagcount">0 found</span></div>
+          <div class="flagitems">None found.</div></div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ============ WEBSITE TERMS PANEL ============ -->
+    <div class="panel" data-panel="website" hidden>
+
+      <div class="clarity-meter">
+        <div class="cm-head">
+          <span class="cm-label">Clarity Meter</span>
+          <span class="cm-band">Readable</span>
+        </div>
+        <div class="cm-track"><span class="cm-node" style="left: 33%"><span class="cm-tip">Some legalese</span></span><span class="cm-node" style="left: 67%"><span class="cm-tip">Dense</span></span><span class="cm-marker" style="left: 46%"></span></div>
+        <div class="cm-ends"><span>Plain English</span><span>Needs a lawyer</span></div>
+        <hr class="cm-sep" />
+        <p class="cm-note">It is short and boilerplate, and the reading is not the hard part; the terms you would actually need are in the product agreement on the other tab.</p>
       </div>
-    </section>
+
+      <div class="meta">
+        <div>Source: <span><a href="https://typesafe.ai/legal/terms">typesafe.ai/legal/terms</a></span></div>
+        <div>Updated: <span>19 Sep 2026</span></div>
+        <div>Retrieved: <span>22 Sep 2026</span></div>
+        <div>Scope: <span>Website only; product terms on the Product terms tab</span></div>
+      </div>
+
+      <hr class="phead-sep" />
+
+      <section class="block">
+        <p class="lead-head">These terms cover TypeSafe's website only. The terms for the product are in the Master Customer Agreement, on the Product terms tab.</p>
+        <ol class="takeaways">
+          <li>These terms govern browsing the website only; the product runs on the Master Customer Agreement, read on the Product terms tab.</li>
+          <li>Any feedback you send hands TypeSafe a perpetual, irrevocable, sublicensable right to use it however it likes.</li>
+          <li>Disputes go to individual arbitration and you waive class actions; opting out needs a mailed letter within thirty days.</li>
+          <li>The terms cap liability at $100.</li>
+        </ol>
+      </section>
+
+      <section class="block">
+
+        <div class="journey" id="wt-product">
+          <h3 class="jname">Product</h3>
+          <p class="summary">This page barely mentions a product. It covers the website, and it says outright that using any real TypeSafe product runs on a separate agreement, the Master Customer Agreement, read on the Product terms tab. The license on this page lets you <strong>browse the site, nothing more</strong>.</p>
+          <div class="qcard">
+          <blockquote>"These Terms of Use are a legally binding contract between you and TypeSafe regarding your use of the Site. If you enter into a separate agreement with TypeSafe for the use of any TypeSafe products or services... the terms of that separate agreement will govern your access to and use of those products and service."<span class="src">Preamble</span></blockquote>
+          <blockquote>"TypeSafe grants you, solely for your personal use, a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to access and use the Site."<span class="src">Section 3(a) · Limited License</span></blockquote>
+          </div>
+          <p class="note">How the product treats you, your data, and what you make with it is set out in the separate Master Customer Agreement, shown on the Product terms tab.</p>
+        </div>
+
+        <div class="journey" id="wt-usage">
+          <h3 class="jname">Usage</h3>
+          <p class="summary">The usual browsing rules apply: no illegal use, no touching or copying the site, no reverse engineering, <strong>no scrapers or bots</strong>. The site is meant for visitors in the United States, and reaching it from anywhere that makes access illegal is off-limits.</p>
+          <div class="qcard">
+          <blockquote>"you may not: (i) use the Site for any illegal purpose... (v) reverse engineer or otherwise attempt to discover the source code... or (vi) use... 'robots,' 'spiders,' 'scrapers,' 'webcrawlers,' or other computer programs that monitor, copy, or download data or other content"<span class="src">Section 3(b) · License Restrictions</span></blockquote>
+          <blockquote>"The Site is intended for visitors located within the United States. TypeSafe makes no representation that the Site is appropriate or available for use outside of the United States."<span class="src">Section 13(g) · International Use</span></blockquote>
+          </div>
+          <p class="note">"unauthorized use" and "misuse" set off your indemnity, and the document defines neither (Section 9).</p>
+        </div>
+
+        <div class="journey" id="wt-feedback">
+          <h3 class="jname">Feedback &amp; improvement</h3>
+          <p class="summary">The one clause here with real weight is about feedback. Whatever you send counts as non-confidential, and you hand TypeSafe a a <strong>perpetual, irrevocable, sublicensable right</strong> to use it for anything. They also tell you flat out to keep anything confidential off the site. There is no training clause here; this page covers the website, and the product terms are on the other tab.</p>
+          <div class="qcard">
+          <blockquote>"Do not submit any information or other materials that you consider confidential or proprietary through the Site."<span class="src">Section 3(c) · Information You Submit</span></blockquote>
+          <blockquote>"you hereby grant TypeSafe an unrestricted, perpetual, irrevocable, non-exclusive, fully paid-up, royalty-free, transferable, sublicensable right to exploit the Feedback in any manner and for any purpose, including to improve the Site and create other products and services."<span class="src">Section 3(c) · Information You Submit</span></blockquote>
+          </div>
+          <p class="note">Whether the product trains on your inputs is covered in the Master Customer Agreement, on the Product terms tab. This page does not cover it.</p>
+        </div>
+
+        <div class="journey" id="wt-legal">
+          <h3 class="jname">Legal ramifications</h3>
+          <p class="summary">Disputes go to individual arbitration through JAMS, and you give up class actions and a jury. You can opt out, but only by <strong>mailing a paper letter</strong> inside thirty days. The most you can recover is a hundred dollars. You indemnify TypeSafe one way. They can change the terms whenever they like and hold you to the latest version each time you visit, and Delaware law governs.</p>
+          <div class="qcard">
+          <blockquote>"YOU AND TYPESAFE AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING."<span class="src">Section 12(h) · No Class Actions</span></blockquote>
+          <blockquote>"THE AGGREGATE LIABILITY OF TYPESAFE TO YOU FOR ALL CLAIMS... IS LIMITED TO $100 USD."<span class="src">Section 11(b) · Limitation of Liability</span></blockquote>
+          </div>
+          <p class="note">The arbitration opt-out needs a letter in the post inside thirty days, and small-claims, agency, injunctive, and IP suits stay out of arbitration (Section 12).</p>
+        </div>
+      </section>
+
+      <section class="block" id="wt-structure">
+        <h2 class="sec">Structure summary</h2>
+        <p class="sec-sub">Each item below is in the document, quoted and located, with no score and no judgment of TypeSafe.</p>
+
+              <div class="flags">
+  <div class="flagrow"><div><span class="flagname">One-sided</span><br><span class="flagcount">3 found</span></div>
+          <div class="flagitems">TypeSafe can assign the Terms with no notice or consent; you cannot without consent (Section 13a). Indemnity runs one way (Section 9). It can change the terms whenever it likes (Section 6).</div></div>
+        <div class="flagrow"><div><span class="flagname">Absolute</span><br><span class="flagcount">2 found</span></div>
+          <div class="flagitems"><span class="q">"TypeSafe will have no liability for any change to the Site or any suspension or termination"</span> (Section 7). An <span class="q">"AS IS" and "AS AVAILABLE"</span> disclaimer (Section 10a).</div></div>
+        <div class="flagrow"><div><span class="flagname">Undefined terms</span><br><span class="flagcount">2 found</span></div>
+          <div class="flagitems"><span class="q">"unauthorized use"</span> and <span class="q">"misuse"</span> (Section 9), which set off your indemnity.</div></div>
+        <div class="flagrow"><div><span class="flagname">Scope limits</span><br><span class="flagcount">4 found</span></div>
+          <div class="flagitems">Small-claims, agency, injunctive, and IP suits stay out of arbitration (Section 12b); a thirty-day opt-out by post (Section 12c); TypeSafe visitors only (Section 13g); a California residents notice (Section 13f).</div></div>
+        <div class="flagrow"><div><span class="flagname">Gaps</span><br><span class="flagcount">2 found</span></div>
+          <div class="flagitems">The product terms are not on this page; the arbitration fees are left to the JAMS Rules.</div></div>
+        <div class="flagrow"><div><span class="flagname">Contradictions</span><br><span class="flagcount">0 found</span></div>
+          <div class="flagitems">None found.</div></div>
+        </div>
+      </section>
+
+    </div>
 
     <div class="cta">
       <h3>Check a product yourself</h3>
@@ -291,7 +418,7 @@ footer { padding: 44px 0 72px; text-align: center; }
 
     <section class="block" style="border-bottom:none;">
       <h2 class="sec">Caveats</h2>
-      <p class="caveat">This explains what the document says. It does not read the law for you, weigh whether a clause would hold up, or guess what happens if you break the terms. It is not legal advice, and it does not judge TypeSafe. Every quote is word-for-word from the version updated 19 September 2026, read on 22 September 2026. This page covers the website only; the product terms sit in a separate agreement that is not here, so the read is partial.</p>
+      <p class="caveat">This explains what the documents say. It does not read the law for you, weigh whether a clause would hold up, or guess what happens if you break the terms. It is not legal advice, and it does not judge TypeSafe. Every quote is word-for-word from its source: the Master Customer Agreement and Terms of Use updated 19 September 2026, the Privacy Policy updated 19 November 2025, and the Data Processing Addendum updated 24 April 2026. The Terms of Use was read on 22 September 2026, and the Master Customer Agreement, Privacy Policy, and Data Processing Addendum on 23 September 2026. The separate product agreement is the public Master Customer Agreement, now read and folded in, so this covers both the product and the website terms.</p>
     </section>
 
       </div>
@@ -308,6 +435,27 @@ footer { padding: 44px 0 72px; text-align: center; }
       document.querySelectorAll('.menu-list').forEach(function(l){ l.hidden=true; });
       document.querySelectorAll('.menu-btn').forEach(function(b){ b.setAttribute('aria-expanded','false'); });
     });
+
+    // two-read switcher
+    (function(){
+      var segs = Array.prototype.slice.call(document.querySelectorAll('.seg'));
+      function activate(target){
+        document.querySelectorAll('.seg').forEach(function(s){
+          var on = s.getAttribute('data-target') === target;
+          s.classList.toggle('active', on); s.setAttribute('aria-selected', String(on));
+        });
+        document.querySelectorAll('.panel').forEach(function(p){
+          p.hidden = p.getAttribute('data-panel') !== target;
+        });
+        document.querySelectorAll('.rail .toc').forEach(function(n){
+          n.hidden = n.getAttribute('data-panel') !== target;
+        });
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }
+      segs.forEach(function(s){ s.addEventListener('click', function(){ activate(s.getAttribute('data-target')); }); });
+    })();
+
+    // active section highlight in the rail
     (function(){
       var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
       var map = {}; links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
@@ -319,9 +467,7 @@ footer { padding: 44px 0 72px; text-align: center; }
           }
         });
       }, { rootMargin: '-80px 0px -72% 0px', threshold: 0 });
-      ['product','usage','feedback','legal','structure'].forEach(function(id){
-        var el = document.getElementById(id); if(el) obs.observe(el);
-      });
+      document.querySelectorAll('.panel [id]').forEach(function(el){ obs.observe(el); });
     })();
   </script>
 </body>
