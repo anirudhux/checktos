@@ -13,3 +13,6 @@ deploy.sh
 
 # OG image template (the rendered og.png ships; this source does not)
 og.html
+
+# tracking setup notes — not served
+TRACKING.md

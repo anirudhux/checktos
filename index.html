@@ -21,14 +21,14 @@
   <meta name="twitter:site" content="@anirudhux" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #ffffff; --panel: #e9efe4; --border: #d5ddcc; --ink: #26332b; --muted: #61705f;
       --accent: #d2694a; --accent-soft: #ecb7a6; --on-accent: #fbf6f1;
       --node-fill: #26332b; --node-text: #f2f5ef; --ok: #3f7d5a;
-      --sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans: "Geist", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --serif: "Bricolage Grotesque", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     }
     html { scroll-behavior: smooth; color-scheme: light; }
@@ -216,7 +216,7 @@
       <span class="wordmark">CheckTOS</span>
       <nav class="nav">
         <a class="nav-link" href="#examples">Examples</a>
-        <a class="nav-cta" href="downloads/checktos-skill.zip" download>Download Skill ↓</a>
+        <a class="nav-cta" href="/api/download">Download Skill ↓</a>
       </nav>
     </header>
 
@@ -339,7 +339,7 @@
 
     <section class="hero">
       <p class="lede">CheckTOS reads the fine print and tells you plainly what you are agreeing to. Give it a URL, a PDF, or a document; it extracts the terms, checks them against fixed guidelines, and sorts them into four journeys.</p>
-      <a class="hero-cta" href="downloads/checktos-skill.zip" download>Download Skill ↓</a>
+      <a class="hero-cta" href="/api/download">Download Skill ↓</a>
     </section>
 
     <section class="news" id="examples">
@@ -361,13 +361,14 @@
         <li><span class="step-n">2</span><span>Restart Claude so it picks up the new skill.</span></li>
         <li><span class="step-n">3</span><span>Paste a terms-of-service URL, or type <code>/checktos</code>, and read the breakdown.</span></li>
       </ol>
-      <a class="hero-cta" href="downloads/checktos-skill.zip" download>Download Skill ↓</a>
+      <a class="hero-cta" href="/api/download">Download Skill ↓</a>
     </section>
 
     <footer class="site-footer">
       <div class="changelog">
         <p class="cl-title">Changelog</p>
         <ul>
+          <li><span class="cl-date">24 Sep 2026</span><span>Run the skill and it now writes a shareable breakdown page that opens anywhere, hands an agent the facts to weigh a product against your own rules for data, region and legal terms, and works on any agent framework.</span></li>
           <li><span class="cl-date">23 Sep 2026</span><span>Each breakdown now lists how to reach the company, privacy, support, legal notice and the arbitration opt-out, pulled from the documents. The skill returns a ready-to-show breakdown an agent can pass straight to its own users.</span></li>
           <li><span class="cl-date">23 Sep 2026</span><span>The downloadable skill now reads the full document set, privacy, acceptable-use, SMS and the rest, and breaks down each agreement on its own when a product has more than one.</span></li>
           <li><span class="cl-date">23 Sep 2026</span><span>Breakdown pages get a redesigned close: caveats, two more breakdowns to read, and a proper skill callout. Key phrases are highlighted, and Jev's term switcher holds your place.</span></li>

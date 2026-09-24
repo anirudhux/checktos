@@ -21,13 +21,13 @@
   <meta name="twitter:site" content="@anirudhux" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
 :root {
   --bg: #ffffff; --panel: #eef1e9; --card: #ffffff; --border: #d5ddcc;
   --ink: #26332b; --muted: #61705f; --accent: #d2694a; --accent-soft: #ecb7a6; --on-accent: #fbf6f1; --ok: #3f7d5a;
-  --sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Geist", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: "Bricolage Grotesque", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 html { color-scheme: light; }
@@ -78,11 +78,11 @@ header.bar .wrap { display: flex; align-items: center; justify-content: space-be
 
 /* sections */
 section.block { padding: 56px 0; border-bottom: 1px solid var(--border); }
-h2.sec { font-family: var(--serif); font-weight: 600; font-size: 1.65rem; letter-spacing: -0.01em; margin: 0 0 8px; color: var(--ink); }
+h2.sec { font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 6vw, 2.6rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 10px; color: var(--ink); }
 .sec-sub { font-family: var(--sans); font-size: 0.88rem; color: var(--muted); margin: 0 0 36px; }
 .journey { margin-bottom: 52px; }
 .journey:last-child { margin-bottom: 0; }
-h3.jname { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 16px; }
+h3.jname { font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 6vw, 2.6rem); line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 18px; }
 .journey p.summary { margin: 0 0 20px; }
 
 blockquote { margin: 18px 0; padding: 16px 20px; border: 1px solid var(--border); background: var(--card); border-radius: 12px; font-size: 0.94rem; color: var(--ink); }
@@ -108,11 +108,16 @@ footer { padding: 8px 0 72px; }
 
 @media (max-width: 560px) { .meta { grid-template-columns: 1fr; } .flagrow { grid-template-columns: 1fr; } }
 /* lead: headline + ranked takeaways */
-.lead-head { font-family: var(--serif); font-weight: 600; font-size: clamp(1.35rem, 2.6vw, 1.75rem); line-height: 1.3; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.lead-head { font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 6vw, 2.6rem); line-height: 1.1; color: var(--ink); letter-spacing: -0.02em; margin: 0 0 8px; }
 .lead-label { font-family: var(--sans); font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 24px 0 16px; }
-.takeaways { list-style: none; counter-reset: t; margin: 26px 0 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
-.takeaways li { counter-increment: t; display: flex; gap: 14px; align-items: flex-start; font-size: 1rem; line-height: 1.5; color: var(--ink); }
-.takeaways li::before { content: counter(t); flex: none; width: 24px; height: 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: var(--sans); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.takeaway-card { border: 1px solid var(--border); border-radius: 14px; background: var(--card); overflow: hidden; margin: 26px 0 0; }
+.takeaways { list-style: none; counter-reset: t; margin: 0; padding: 0; }
+.takeaways li { counter-increment: t; display: grid; grid-template-columns: 24px 1fr auto; gap: 6px 18px; align-items: start; padding: 22px 26px; border-top: 1px solid var(--border); font-size: 1rem; line-height: 1.5; color: var(--ink); }
+.takeaways li:first-child { border-top: none; }
+.takeaways li::before { content: counter(t); grid-column: 1; grid-row: 1; width: 24px; height: 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: var(--sans); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.tk-text { grid-column: 2; grid-row: 1; }
+.tk-tag { grid-column: 3; grid-row: 1; justify-self: end; align-self: start; white-space: nowrap; font-family: var(--sans); font-weight: 500; font-size: 11px; color: var(--muted); background: var(--panel); border-radius: 999px; padding: 5px 12px; margin: 1px 0 0 34px; }
+@media (max-width: 620px) { .takeaways li { grid-template-columns: 24px 1fr; } .tk-tag { grid-column: 2; grid-row: 2; justify-self: start; margin: 8px 0 0 0; } }
   .phead-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
   .phead-left { min-width: 0; }
   .dlbar { display: flex; align-items: center; gap: 10px; flex: none; padding-top: 12px; }
@@ -175,7 +180,7 @@ footer { padding: 8px 0 72px; }
   .c-detail { font-size: 0.92rem; color: var(--ink); line-height: 1.5; }
   .c-detail a { color: var(--accent); }
   .c-src { display: block; color: var(--muted); font-size: 0.78rem; margin-top: 3px; }
-  @media (max-width: 560px) { .contact-row { grid-template-columns: 1fr; } }  .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; padding-top: 26px; border-top: 1px solid var(--border); }
+  @media (max-width: 560px) { .contact-row { grid-template-columns: 1fr; } }  .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; padding-top: 8px; }
   .footer-brand { font-family: var(--sans); font-size: 13px; color: var(--muted); }
   .footer-brand b { font-weight: 700; color: var(--ink); }
   .footer-socials { display: flex; align-items: center; gap: 18px; }
@@ -197,7 +202,7 @@ footer { padding: 8px 0 72px; }
       <div class="phead-row">
         <h1 class="pname">Jev</h1>
         <div class="dlbar">
-          <a class="btn primary" href="downloads/checktos-skill.zip" download>Download skill</a>
+          <a class="btn primary" href="/api/download">Download skill</a>
           <div class="menu">
             <button class="btn menu-btn" type="button" aria-haspopup="true" aria-expanded="false">Export <span class="caret">&#9662;</span></button>
             <div class="menu-list" role="menu" hidden>
@@ -267,12 +272,14 @@ footer { padding: 8px 0 72px; }
 
       <section class="block">
         <p class="lead-head">The agreement that actually governs Jev keeps your inputs and outputs yours, and TypeSafe will not train on your data without your consent.</p>
-        <ol class="takeaways">
-          <li>TypeSafe does not claim your Input and assigns you the Output, so what you put in and get out stays yours.</li>
-          <li>TypeSafe will not put your Customer Data into a training set without your prior consent, and the Privacy Policy makes the same promise for your Input.</li>
-          <li>Liability on both sides is capped at the greater of twelve months of fees or fifty dollars, and indemnity runs both ways.</li>
-          <li>Disputes go to individual arbitration with a class-action waiver and no opt-out, under California law.</li>
+        <div class="takeaway-card">
+      <ol class="takeaways">
+          <li><span class="tk-text">TypeSafe does not claim your Input and assigns you the Output, so what you put in and get out stays yours.</span><span class="tk-tag">Your work</span></li>
+          <li><span class="tk-text">TypeSafe will not put your Customer Data into a training set without your prior consent, and the Privacy Policy makes the same promise for your Input.</span><span class="tk-tag">Your data</span></li>
+          <li><span class="tk-text">Liability on both sides is capped at the greater of twelve months of fees or fifty dollars, and indemnity runs both ways.</span><span class="tk-tag">Your legal rights</span></li>
+          <li><span class="tk-text">Disputes go to individual arbitration with a class-action waiver and no opt-out, under California law.</span><span class="tk-tag">Your legal rights</span></li>
         </ol>
+      </div>
       </section>
 
       <section class="block">
@@ -365,12 +372,14 @@ footer { padding: 8px 0 72px; }
 
       <section class="block">
         <p class="lead-head">These terms cover TypeSafe's website only. The terms for the product are in the Master Customer Agreement, on the Product terms tab.</p>
-        <ol class="takeaways">
-          <li>These terms govern browsing the website only; the product runs on the Master Customer Agreement, read on the Product terms tab.</li>
-          <li>Any feedback you send hands TypeSafe a perpetual, irrevocable, sublicensable right to use it however it likes.</li>
-          <li>Disputes go to individual arbitration and you waive class actions; opting out needs a mailed letter within thirty days.</li>
-          <li>The terms cap liability at $100.</li>
+        <div class="takeaway-card">
+      <ol class="takeaways">
+          <li><span class="tk-text">These terms govern browsing the website only; the product runs on the Master Customer Agreement, read on the Product terms tab.</span><span class="tk-tag">Website only</span></li>
+          <li><span class="tk-text">Any feedback you send hands TypeSafe a perpetual, irrevocable, sublicensable right to use it however it likes.</span><span class="tk-tag">Your work</span></li>
+          <li><span class="tk-text">Disputes go to individual arbitration and you waive class actions; opting out needs a mailed letter within thirty days.</span><span class="tk-tag">Your legal rights</span></li>
+          <li><span class="tk-text">The terms cap liability at $100.</span><span class="tk-tag">Your legal rights</span></li>
         </ol>
+      </div>
       </section>
 
       <section class="block">
@@ -468,7 +477,7 @@ footer { padding: 8px 0 72px; }
     <section class="skill-cta">
       <h2>Read the fine print on anything you sign.</h2>
       <p>CheckTOS is a downloadable skill. Point it at any terms of service and get this same plain-language read inside your own Claude, on your own tokens.</p>
-      <a class="btn-on-ink" href="downloads/checktos-skill.zip" download>Download the skill</a>
+      <a class="btn-on-ink" href="/api/download">Download the skill</a>
     </section>
 
     <footer>
