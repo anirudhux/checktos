@@ -10,3 +10,12 @@ checktos-skill/
 # end-to-end run records
 TOS files/
 samples/
+
+# generated at deploy for peek functions
+api/_breakdown-template.html
+api/_peek-prompt.md
+
+# secrets — never commit
+.env
+.env.local
+.env*.local

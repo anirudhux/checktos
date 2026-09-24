@@ -16,3 +16,8 @@ og.html
 
 # tracking setup notes — not served
 TRACKING.md
+
+# secrets — never upload
+.env
+.env.local
+.env*.local

@@ -22,5 +22,10 @@ for c in instinct lovable jev; do
 done
 echo "refreshed per-product download files"
 
+# 2b. Bundle the shared template + skill prompt so the peek functions can read them.
+cp checktos-skill/breakdown-template.html api/_breakdown-template.html
+cp checktos-skill/PORTABLE.md api/_peek-prompt.md
+echo "bundled template + prompt for peek functions"
+
 # 3. Deploy to production.
 vercel deploy --prod --yes
