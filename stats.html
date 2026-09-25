@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Peek stats · CheckTOS</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root{
+  --bg:#ffffff; --panel:#f4f2ec; --card:#ffffff; --border:#e6e3da;
+  --ink:#1f231e; --muted:#6b6d62; --accent:#2f5d47;
+  --sans:"Geist",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:"Bricolage Grotesque",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+}
+*{box-sizing:border-box;} html{color-scheme:light;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px;}
+a{color:var(--accent);}
+header.bar{border-bottom:1px solid var(--border);}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+.wordmark{font-family:var(--sans);font-weight:700;font-size:19px;color:var(--ink);text-decoration:none;}
+.tag{font-family:var(--sans);font-weight:500;font-size:13px;color:var(--muted);}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,2.8rem);letter-spacing:-0.02em;margin:44px 0 6px;}
+.range{font-size:0.9rem;color:var(--muted);margin:0 0 32px;}
+
+.gate{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0;}
+.gate input{flex:1;min-width:220px;font-family:var(--sans);font-size:1rem;border:1px solid var(--border);border-radius:12px;padding:13px 16px;background:var(--card);color:var(--ink);}
+.gate input:focus{outline:none;border-color:var(--ink);}
+.gate button{font-family:var(--sans);font-weight:600;font-size:0.95rem;color:#fff;background:var(--ink);border:1px solid var(--ink);border-radius:12px;padding:13px 24px;cursor:pointer;}
+.msg{font-size:0.9rem;color:var(--accent);min-height:1.2em;margin:0 0 16px;}
+
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 40px;}
+.metric{background:var(--panel);border-radius:12px;padding:16px 18px;}
+.metric .lbl{font-size:12px;color:var(--muted);margin:0 0 6px;}
+.metric .val{font-family:var(--serif);font-weight:600;font-size:1.7rem;color:var(--ink);letter-spacing:-0.01em;}
+@media (max-width:640px){.cards{grid-template-columns:repeat(2,1fr);}}
+
+section.blk{margin:0 0 40px;}
+h2{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin:0 0 16px;color:var(--ink);}
+.bars{display:flex;flex-direction:column;gap:10px;}
+.bar-row{display:grid;grid-template-columns:180px 1fr 48px;gap:12px;align-items:center;font-size:0.9rem;}
+.bar-name{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-track{display:block;background:var(--panel);border-radius:999px;height:12px;overflow:hidden;}
+.bar-fill{display:block;background:var(--accent);height:100%;border-radius:999px;min-width:2px;transition:width .5s var(--ease-out);}
+.bar-val{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums;}
+.empty{color:var(--muted);font-size:0.9rem;}
+@media (max-width:560px){.bar-row{grid-template-columns:120px 1fr 40px;}}
+
+.consent{display:flex;gap:10px;flex-wrap:wrap;}
+.cpill{font-size:0.85rem;color:var(--ink);background:var(--panel);border:1px solid var(--border);border-radius:999px;padding:8px 14px;}
+.cpill b{font-weight:600;}
+footer{border-top:1px solid var(--border);padding:24px 0;margin-top:40px;font-size:13px;color:var(--muted);}
+[hidden]{display:none;}
+  </style>
+</head>
+<body>
+  <header class="bar"><div class="wrap"><a class="wordmark" href="index.html">CheckTOS</a><span class="tag">Peek stats</span></div></header>
+
+  <main class="wrap">
+    <h1>Peek stats</h1>
+    <p class="range" id="range">Private dashboard.</p>
+
+    <div class="gate" id="gate" hidden>
+      <input type="password" id="key" placeholder="Stats key" autocomplete="off" />
+      <button id="load">View stats</button>
+    </div>
+    <p class="msg" id="msg"></p>
+
+    <div id="dash" hidden>
+      <div class="cards" id="cards"></div>
+      <section class="blk"><h2>Top products checked</h2><div class="bars" id="products"></div></section>
+      <section class="blk"><h2>By country</h2><div class="bars" id="countries"></div></section>
+      <section class="blk"><h2>By day</h2><div class="bars" id="days"></div></section>
+      <section class="blk"><h2>Consent</h2><div class="consent" id="consent"></div></section>
+    </div>
+  </main>
+
+  <footer><div class="wrap">CheckTOS · Peek analytics. Numbers only.</div></footer>
+
+  <script>
+    (function () {
+      var KEY_STORE = 'checktos_stats_key';
+      var gate = document.getElementById('gate'), keyInput = document.getElementById('key'),
+          msg = document.getElementById('msg'), dash = document.getElementById('dash'), range = document.getElementById('range');
+
+      function esc(s){ return String(s==null?'':s).replace(/[<>&]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;'}[c];}); }
+      function metric(lbl, val){ return '<div class="metric"><div class="lbl">'+esc(lbl)+'</div><div class="val">'+esc(val)+'</div></div>'; }
+      function bars(el, list, unit){
+        if(!list || !list.length){ el.innerHTML = '<p class="empty">Nothing yet.</p>'; return; }
+        var max = Math.max.apply(null, list.map(function(x){return x.count;})) || 1;
+        el.innerHTML = list.map(function(x){
+          var pct = Math.round(x.count / max * 100);
+          return '<div class="bar-row"><span class="bar-name" title="'+esc(x.name||x.day)+'">'+esc(x.name||x.day)+'</span>'
+               + '<span class="bar-track"><span class="bar-fill" style="width:'+pct+'%"></span></span>'
+               + '<span class="bar-val">'+x.count+'</span></div>';
+        }).join('');
+      }
+      function fmtDate(iso){ if(!iso) return '—'; try { return new Date(iso).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}); } catch(e){ return iso.slice(0,10); } }
+
+      function render(d){
+        document.getElementById('cards').innerHTML =
+          metric('Total runs', (d.total_runs||0).toLocaleString())
+          + metric('Sampled', (d.sampled||0).toLocaleString())
+          + metric('First seen', fmtDate(d.first_seen))
+          + metric('Last seen', fmtDate(d.last_seen));
+        bars(document.getElementById('products'), d.top_products);
+        bars(document.getElementById('countries'), d.by_country);
+        bars(document.getElementById('days'), (d.by_day||[]).map(function(x){return {name:x.day,count:x.count};}));
+        var c = d.consent||{};
+        document.getElementById('consent').innerHTML = Object.keys(c).length
+          ? Object.keys(c).map(function(k){ return '<span class="cpill">'+esc(k)+' <b>'+c[k]+'</b></span>'; }).join('')
+          : '<p class="empty">Nothing yet.</p>';
+        range.textContent = 'Based on the most recent ' + (d.sampled||0) + ' of ' + (d.total_runs||0) + ' runs.';
+        dash.hidden = false; gate.hidden = true;
+      }
+      window._renderStats = render; // for local preview
+
+      function load(key){
+        msg.textContent = 'Loading…';
+        fetch('/api/peek-stats?key=' + encodeURIComponent(key))
+          .then(function(r){ if(r.status===401){ throw new Error('unauthorized'); } return r.json(); })
+          .then(function(d){ if(d.error) throw new Error(d.error); msg.textContent=''; try{localStorage.setItem(KEY_STORE,key);}catch(e){} render(d); })
+          .catch(function(e){
+            if(String(e.message)==='unauthorized'){ msg.textContent='That key is not right.'; try{localStorage.removeItem(KEY_STORE);}catch(x){} }
+            else { msg.textContent='Could not load stats right now.'; }
+            gate.hidden=false; dash.hidden=true;
+          });
+      }
+
+      document.getElementById('load').onclick = function(){ var k=keyInput.value.trim(); if(k) load(k); };
+      keyInput.addEventListener('keydown', function(e){ if(e.key==='Enter'){ var k=keyInput.value.trim(); if(k) load(k); } });
+
+      var params = new URLSearchParams(location.search);
+      var stored; try { stored = localStorage.getItem(KEY_STORE); } catch(e){}
+      var initial = params.get('key') || stored;
+      if(initial){ load(initial); } else { gate.hidden=false; }
+    })();
+  </script>
+</body>
+</html>
