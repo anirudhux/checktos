@@ -17,3 +17,6 @@ Vercel's project dashboard also shows how often `/api/ping` and `/api/download` 
 ## Notes
 - The counter is read-modify-write on one file: a ballpark, light on Blob IO. Simultaneous hits can drop one. If opens ever get heavy, switch `/api/ping` to writing one small file per hit and counting by listing.
 - `@vercel/blob` is pinned to `latest` in `package.json`; pin an exact version once it is in.
+
+## Peek stats
+`https://checktos.com/api/peek-stats?key=YOUR_STATS_KEY` — total peek runs, top products checked (by host), country breakdown, per-day counts, and consent split. Reads the `peek-logs/` entries; needs the Blob store connected and `STATS_KEY` set.
