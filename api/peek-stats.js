@@ -50,6 +50,6 @@ export default async function handler(req, res) {
       consent
     });
   } catch (e) {
-    res.status(500).json({ error: 'stats unavailable — is the Blob store connected?' });
+    res.status(500).json({ error: 'stats unavailable' });
   }
 }

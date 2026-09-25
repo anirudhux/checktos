@@ -27,7 +27,7 @@ function clientIp(req) {
 }
 async function logRequest(url, req, consent) {
   const entry = { url, ts: new Date().toISOString(), country: req.headers['cf-ipcountry'] || req.headers['x-vercel-ip-country'] || null, region: req.headers['x-vercel-ip-country-region'] || null, city: req.headers['x-vercel-ip-city'] || null, ua: req.headers['user-agent'] || null, referer: req.headers['referer'] || null, lang: req.headers['accept-language'] || null, consent: consent || 'unset' };
-  try { await put('peek-logs/' + entry.ts.replace(/[:.]/g, '-') + '-' + Math.random().toString(36).slice(2, 8) + '.json', JSON.stringify(entry), { access: 'public', addRandomSuffix: false, contentType: 'application/json' }); } catch (e) {}
+  try { await put('peek-logs/' + entry.ts.replace(/[:.]/g, '-') + '.json', JSON.stringify(entry), { access: 'public', addRandomSuffix: true, contentType: 'application/json' }); } catch (e) {}
 }
 async function getCache(id) {
   try {

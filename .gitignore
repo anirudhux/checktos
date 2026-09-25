@@ -19,3 +19,4 @@ api/_peek-prompt.md
 .env
 .env.local
 .env*.local
+.env*
